@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Arnald Paguio - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">Your Name</div>
+            <div class="nav-brand">Arnald Paguio</div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -32,62 +30,63 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Your Name</span>
-                </h1>
-                <p class="hero-subtitle">Machine Learning Engineer & Data Scientist</p>
-                <p class="hero-description">
-                    I build robust ML systems and libraries that streamline machine learning workflows and make AI more accessible.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-placeholder">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="100" r="80" fill="#6366f1"/>
-                        <text x="100" y="120" font-size="60" fill="white" text-anchor="middle" font-weight="bold">YN</text>
-                    </svg>
-                </div>
-            </div>
+            <h1 class="hero-title">Arnald Paguio</h1>
+            <p class="hero-subtitle">Master of Science in Data Science, Boston University</p>
+            <p class="hero-description">
+                Graduate student at Boston University with experience working as a data scientist, architecting scalable MLOps solutions 
+                and optimizing machine learning infrastructure for financial institutions.
+            </p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a machine learning engineer and data scientist passionate about building robust ML systems 
-                        and libraries that streamline the development workflow. With expertise in Python, ML frameworks, 
-                        and cloud infrastructure, I create scalable solutions that make machine learning more accessible 
-                        and efficient.
-                    </p>
-                    <p>
-                        My work focuses on developing standardized tools for preprocessing, model training, evaluation, 
-                        and deployment. I'm particularly interested in ML engineering best practices, model registry systems, 
-                        and creating reusable components that accelerate the ML development lifecycle.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Dedication</div>
-                        </div>
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-list">
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Data Scientist</h3>
+                        <span class="experience-company">Bank of the Philippine Islands (BPI)</span>
+                        <span class="experience-date">Jul 2022 - Aug 2025</span>
                     </div>
-                </div>
+                    <p class="experience-location">Manila, Philippines</p>
+                    <ul class="experience-details">
+                        <li>Solely architected bpi-standard-ml, a Python MLOps library used by BPI's Data Science group, cutting model development time by 70% and supporting over 50 data scientists</li>
+                        <li>Built ML infrastructure, creating an S3-based model registry with automated versioning, a DuckDB-backed feature store, and a statistical drift detection system</li>
+                        <li>Engineered automated data pipeline migration from SageMaker notebooks to AWS Glue with Lambda-triggered S3 events, converting legacy data workflows to Iceberg table format and reducing processing costs by ~83%</li>
+                        <li>Led credit card inactivity prediction: Deployed LightGBM model on AWS SageMaker achieving 90% precision/recall, generating $3.1M USD additional annual revenue through automated intervention programs</li>
+                        <li>Delivered customer deposit forecasting: Built XGBoost system processing 1.9B+ rows for weekly leadership decisions, achieving 2.3% MAPE across 10-week horizons using optimized Polars pipelines</li>
+                        <li>Developed Data Builder and Profiler: Created analytics automation Python library reducing team processing time by 12x through Polars implementation and standardized workflows</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Data Management and Analytics Intern</h3>
+                        <span class="experience-company">QuadX Inc.</span>
+                        <span class="experience-date">Jan 2022 - May 2022</span>
+                    </div>
+                    <p class="experience-location">Manila, Philippines</p>
+                    <ul class="experience-details">
+                        <li>Optimized delivery routing system using Google OR-Tools for multi-vehicle, multi-stop routes across Metro Manila, handling complex constraints, which shortened average delivery routes and improved on-time deliveries</li>
+                        <li>Migrated analytics operations to Power BI and redesigned operational dashboards for delivery tracking and logistics analytics, providing real-time visibility that accelerated decision-making for the logistics team</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Advanced Analytics Intern</h3>
+                        <span class="experience-company">GCash (Mynt - Globe Fintech Innovations, Inc.)</span>
+                        <span class="experience-date">Jun 2021 - Sep 2021</span>
+                    </div>
+                    <p class="experience-location">Manila, Philippines</p>
+                    <ul class="experience-details">
+                        <li>Conducted user behavior analysis across GCash products using large-scale transaction databases and optimized SQL queries</li>
+                        <li>Built ML model for GInvest investment behavior prediction with end-to-end pipeline including feature engineering and hyperparameter optimization</li>
+                        <li>Developed automated Metabase dashboard for GForest tracking real-time user activity and environmental metrics</li>
+                    </ul>
+                </article>
             </div>
         </div>
     </section>
@@ -95,73 +94,45 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">BPI Standard ML</div>
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-list">
+                <article class="project-item">
+                    <h3 class="project-title">BPI Standard ML Library</h3>
+                    <p class="project-description">
+                        Architected a Python MLOps library used by BPI's Data Science group, cutting model development time by 70% and supporting over 50 data scientists. 
+                        Includes S3-based model registry with automated versioning, DuckDB-backed feature store, and statistical drift detection system. 
+                        Features comprehensive tools for preprocessing, feature selection, model training, evaluation, and deployment. Designed to work seamlessly with AWS Sagemaker environments.
+                        You may find a demo version of the library through the link below.
+                    </p>
+                    <p class="project-links">
+                        <a href="https://github.com/aadpaguio/bpi-standard-ml-demo" target="_blank">GitHub →</a>
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tech">Python</span>
+                        <span class="project-tech">scikit-learn</span>
+                        <span class="project-tech">XGBoost</span>
+                        <span class="project-tech">LightGBM</span>
+                        <span class="project-tech">AWS S3</span>
+                        <span class="project-tech">DuckDB</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">BPI Standard ML Library</h3>
-                        <p class="project-description">
-                            A comprehensive Python library for streamlining machine learning workflows, including preprocessing, 
-                            feature selection, model training, evaluation, and S3-based model registry. Designed to accelerate 
-                            ML development with consistent APIs and best practices.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">scikit-learn</span>
-                            <span class="tag">XGBoost</span>
-                            <span class="tag">LightGBM</span>
-                            <span class="tag">AWS S3</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aadpaguio/bpi-standard-ml-demo" class="project-link" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Project 2</div>
+                <article class="project-item">
+                    <h3 class="project-title">Town's Best Moneychanger</h3>
+                    <p class="project-description">
+                        Architected full-stack financial management system using Next.js, TypeScript, and dual-database architecture (Turso SQLite + Neon PostgreSQL). 
+                        Implemented real-time transaction processing, automated calculations, and role-based access control across multiple branches. 
+                        Built integrated analytics dashboard with Metabase for historical data analysis and business intelligence reporting. 
+                        Deployed production system on Vercel with proper CI/CD pipeline, replacing manual record-keeping processes.
+                    </p>
+                    <div class="project-meta">
+                        <span class="project-tech">Next.js</span>
+                        <span class="project-tech">TypeScript</span>
+                        <span class="project-tech">PostgreSQL</span>
+                        <span class="project-tech">Metabase</span>
+                        <span class="project-tech">Vercel</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">
-                            A collaborative task management application with real-time updates and team collaboration features.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">TypeScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Project 3</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Weather Dashboard</h3>
-                        <p class="project-description">
-                            A beautiful weather dashboard with location-based forecasts and interactive maps.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">API</span>
-                            <span class="tag">CSS3</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -169,41 +140,23 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Machine Learning</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">scikit-learn</span>
-                        <span class="skill-item">XGBoost</span>
-                        <span class="skill-item">LightGBM</span>
-                        <span class="skill-item">CatBoost</span>
-                        <span class="skill-item">Pandas</span>
-                        <span class="skill-item">NumPy</span>
-                    </div>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-content">
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Languages</h3>
+                    <p class="skill-list">Python, SQL, R, TypeScript, JavaScript</p>
                 </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">ML Engineering</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Model Registry</span>
-                        <span class="skill-item">ML Pipelines</span>
-                        <span class="skill-item">Feature Engineering</span>
-                        <span class="skill-item">Model Evaluation</span>
-                        <span class="skill-item">Optuna</span>
-                        <span class="skill-item">Statsmodels</span>
-                    </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Machine Learning & Data</h3>
+                    <p class="skill-list">Pandas, Polars, scikit-learn, XGBoost, LightGBM, PyTorch, Optuna</p>
                 </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Tools & Cloud</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">AWS S3</span>
-                        <span class="skill-item">boto3</span>
-                        <span class="skill-item">Jupyter</span>
-                        <span class="skill-item">Matplotlib</span>
-                        <span class="skill-item">Seaborn</span>
-                    </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Cloud & Infrastructure</h3>
+                    <p class="skill-list">AWS (SageMaker, S3, Glue), Docker, Apache Spark</p>
+                </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Visualization</h3>
+                    <p class="skill-list">Matplotlib, Metabase, Power BI, Tableau</p>
                 </div>
             </div>
         </div>
@@ -212,46 +165,17 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-description">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-            </p>
+            <h2 class="section-title">Contact</h2>
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>your.email@example.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/yourprofile</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🐙</div>
-                        <div>
-                            <h4>GitHub</h4>
-                            <p>github.com/yourusername</p>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <p>
+                    <a href="mailto:adpaguio@bu.edu">adpaguio@bu.edu</a>
+                </p>
+                <p>
+                    <a href="tel:+16463521778">+1 (646) 352-1778</a>
+                </p>
+                <p>
+                    <a href="https://github.com/aadpaguio" target="_blank">GitHub</a>
+                </p>
             </div>
         </div>
     </section>
@@ -259,7 +183,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>&copy; 2024 Arnald Paguio</p>
         </div>
     </footer>
 
