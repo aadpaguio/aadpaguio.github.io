@@ -3,6 +3,7 @@
 /.luarc.json
 **/.ipynb_checkpoints/
 al-folio/
+blog/new-manager-bounce/data/raw/
 
 /.quarto/
 **/*.quarto_ipynb

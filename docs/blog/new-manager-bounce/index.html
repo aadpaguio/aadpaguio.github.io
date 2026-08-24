@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2026-08-24">
 <meta name="description" content="When a club sacks its manager, results often improve. Matching on pre-treatment form tests whether the sacking caused the bounce, or whether it was coming anyway.">
 
-<title>Does the New Manager Bounce Exist? – Arnald Paguio</title>
+<title>The new manager bounce: does sacking actually help? – Arnald Paguio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,10 +29,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -59,10 +94,42 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
 </head>
@@ -107,8 +174,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#association-is-not-causation" id="toc-association-is-not-causation" class="nav-link active" data-scroll-target="#association-is-not-causation">Association is not causation</a></li>
-  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next</a></li>
+  <li><a href="#association-is-not-causation-till-it-is" id="toc-association-is-not-causation-till-it-is" class="nav-link active" data-scroll-target="#association-is-not-causation-till-it-is">Association is not causation… till it is!</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
+  <li><a href="#measuring-the-bounce" id="toc-measuring-the-bounce" class="nav-link" data-scroll-target="#measuring-the-bounce">Measuring the bounce</a></li>
+  <li><a href="#a-first-look-at-the-data" id="toc-a-first-look-at-the-data" class="nav-link" data-scroll-target="#a-first-look-at-the-data">A first look at the data</a>
+  <ul class="collapse">
+  <li><a href="#sackings-by-league" id="toc-sackings-by-league" class="nav-link" data-scroll-target="#sackings-by-league">Sackings by league</a></li>
+  <li><a href="#the-naive-comparison" id="toc-the-naive-comparison" class="nav-link" data-scroll-target="#the-naive-comparison">The naive comparison</a></li>
+  </ul></li>
+  <li><a href="#coarsened-exact-matching" id="toc-coarsened-exact-matching" class="nav-link" data-scroll-target="#coarsened-exact-matching">Coarsened exact matching</a>
+  <ul class="collapse">
+  <li><a href="#did-matching-work" id="toc-did-matching-work" class="nav-link" data-scroll-target="#did-matching-work">Did matching work?</a></li>
+  <li><a href="#the-att" id="toc-the-att" class="nav-link" data-scroll-target="#the-att">The ATT</a></li>
+  </ul></li>
+  <li><a href="#event-time-plot" id="toc-event-time-plot" class="nav-link" data-scroll-target="#event-time-plot">Event-time plot</a></li>
+  <li><a href="#robustness-three-five-and-eight-matches" id="toc-robustness-three-five-and-eight-matches" class="nav-link" data-scroll-target="#robustness-three-five-and-eight-matches">Robustness: three, five, and eight matches</a></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -117,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Does the New Manager Bounce Exist?</h1>
+<h1 class="title">The new manager bounce: does sacking actually help?</h1>
 <p class="subtitle lead">A causal inference exercise with 20 years of Big Five football data</p>
   <div class="quarto-categories">
     <div class="quarto-category">football</div>
@@ -157,16 +241,856 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When a football club sacks its manager, the next few matches often look better. Commentators call it the new manager bounce. The question is whether the sacking <em>caused</em> the improvement, or whether mean reversion was going to deliver it anyway.</p>
-<section id="association-is-not-causation" class="level2">
-<h2 class="anchored" data-anchor-id="association-is-not-causation">Association is not causation</h2>
-<p>Teams that fire their manager are not a random sample. They fire after a collapse. If you compare the five matches before a sacking to the five after, you will almost always see a bounce — and you will have learned nothing about the treatment. The interesting comparison is treated clubs versus similar clubs that were also in a slump but kept their manager.</p>
+<p>Ask any football fan and they’d tell you the only thing worse than your club’s manager getting sacked are the eight-to-ten matchweeks before it. A sacking is after all just the punctuation mark to a sustained period of on-pitch failure (barring the occasional club politics flare-up). If you love football and are chronically-online like me, you’d know that when your team is bad, a site like X becomes a literal doom-scroll; the in-fighting among fans, the crucifixion of players, AND worst of all, the glee of your rivals.</p>
+<p>Fast forward 48 hours after the sacking: A new face shows up for the first press conference, says some nice things about the squad, and suddenly the same players who looked like they forgot how to pass a ball start playing with something resembling effort. Results pick up. The mood shifts. Fans who were writing eulogies two weeks ago are now talking about a top-four push.</p>
+<p>People online call this the ‘new manager bounce,’ and it’s one of those football concepts that’s always fascinated and amused me. For the downtrodden fan, your hopes for the season are never over! Just switch out the manager and voila! Season saved. For the rival fan, a fresh face at the dugout means losing points. Like the hot hand fallacy in basketball, the new manager bounce is one of those things that everyone accepts as true without really questioning it. I’d never actually checked, but it always felt true. Today, however, as a fun exercise I wanted to see if the data actually backs it up. Do teams genuinely perform better under a new manager, or are we just watching a bad streak correct itself? This is a causal inference question, so let me quickly explain what that means.</p>
+<section id="association-is-not-causation-till-it-is" class="level2">
+<h2 class="anchored" data-anchor-id="association-is-not-causation-till-it-is">Association is not causation… till it is!</h2>
+<p>Here’s a quick primer on causal inference (a lot of this is taken from Matheus Facure Alves’s excellent book).</p>
+<p>Causal inference is a set of techniques for figuring out if an action or event is the cause of a specific outcome. It is great for answering questions like:</p>
+<ul>
+<li>What would happen if I used another price instead of this price I’m currently asking for my merchandise?</li>
+<li>What would happen if I do a low sugar one instead of this low-fat diet I’m on?</li>
+<li>Or more pertinently: <strong>what would happen if I sack the manager instead of keeping him on?</strong></li>
+</ul>
+<p>I think most people can intuitively understand that association is not causation. Just because you noticed a correlation between two variables doesn’t mean one variable caused the change in the other. The fundamental task of causal inference is figuring out whether the association you observe is causation.</p>
+<p>So let’s bring it back to football. Fans see a new manager come in and results improve (the association), but is the new manager the cause? The thing is, teams don’t sack managers at random! They sack them when things are at their worst. And when you’re at your worst, results tend to improve on their own. If your team loses five matches in a row, the most likely outcome is that the next few matches go a little better, regardless of who’s in the dugout (we’d call this <strong>regression to the mean</strong>). So the question really becomes: would results have improved just as much if the club had stuck with the old manager?</p>
+<p>To try to answer that, I’ll be doing the following:</p>
+<ol type="1">
+<li><strong>Describe the bounce.</strong> First, I want to see if the bounce even shows up in the raw data. I’ll plot points per game in the six matches before a mid-season sacking and the five matches after. If the bounce is real, we should see a dip leading into the sacking and a jump right after.</li>
+<li><strong>Build a fair comparison.</strong> To isolate the effect of the sacking, we need to find clubs that looked just as bad at the same point in the season but kept their manager. Same league, similar table position, similar recent form. These are the “what if they hadn’t sacked him” clubs. The matching method I’ll use is called coarsened exact matching (CEM). I’ll go into more detail later in this post.</li>
+<li><strong>Estimate the effect.</strong> Once we have our matched groups, we can estimate the ATT (average treatment effect on the treated). Let <span class="math inline">\(T\)</span> be whether a club sacked their manager (<span class="math inline">\(T=1\)</span>) or kept them (<span class="math inline">\(T=0\)</span>), <span class="math inline">\(Y(1)\)</span> be points per game after sacking, and <span class="math inline">\(Y(0)\)</span> be points per game after keeping:</li>
+</ol>
+<p><span class="math display">\[\text{ATT} = E[Y(1) - Y(0) \mid T = 1]\]</span></p>
+<p>In other words: among clubs that fired their manager, what’s the difference between the points they actually got and the points they would have got if they’d kept the old manager? We never actually observe <span class="math inline">\(Y(0)\)</span>, so matching will serve as our proxy.</p>
+<p>For this estimate to mean anything, a few things have to be true:</p>
+<ul>
+<li><strong>Consistency.</strong> I’m defining sackings as mid-season dismissals. So no resignations, mutual terminations, or end-of-contract departures.</li>
+<li><strong>Positivity.</strong> For every club that sacked their manager, there need to be similar clubs that didn’t.</li>
+<li><strong>Conditional exchangeability.</strong> Given the variables we match on, the decision to sack has to be as good as random. The board can’t be firing based on something important that we failed to account for.</li>
+</ul>
 </section>
-<section id="whats-next" class="level2">
-<h2 class="anchored" data-anchor-id="whats-next">What’s next</h2>
-<p>This post will use coarsened exact matching on 20 years of Big Five league data to estimate the average treatment effect on the treated. The notebook version — code, balance tables, and event-time plots — will replace this page. Until then, the question stands: after you match on pre-treatment form, is there anything left of the bounce?</p>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>For this project I need two things: (1) records on manager changes (who, when, how), and (2) Top-5 European league match results.</p>
+<p>Match results come from <a href="https://www.football-data.co.uk">football-data.co.uk</a>, the usual open CSVs for the Big Five (Premier League, La Liga, Serie A, Bundesliga, Ligue 1). I stack them into a club-match panel: every team, every league game, with points (3/1/0), a running matchweek count, league position, and trailing form (points per game and goal difference over the last six matches). That panel goes back to 1993/94.</p>
+<p>Managerial changes come mainly from Wikipedia’s season pages, specifically the “Managerial changes” tables. With the help of Grok 4.6 and Composer 2.5, I scraped and parsed these into a CSV that contains who left, how they left (sacked, resigned, mutual consent), vacancy date, and who came in. Club names get mapped onto the football-data names so the two sources join. Where a season has no Wikipedia table, Transfermarkt filled the gaps. The managerial changes data covers 2004/05 through 2024/25, which is the window where the sacking data is usable.</p>
+<p>After filtering to mid-season sackings with at least five league games remaining, the primary sample is <strong>585 sacking events</strong> across the Big Five leagues.</p>
+<div id="5c3487e3" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"figure.dpi"</span>: <span class="dv">120</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"axes.spines.top"</span>: <span class="va">False</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"axes.spines.right"</span>: <span class="va">False</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"axes.grid"</span>: <span class="va">True</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"grid.alpha"</span>: <span class="fl">0.25</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>panel <span class="op">=</span> pd.read_parquet(<span class="st">"data/intermediate/matches_panel.parquet"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> pd.read_csv(<span class="st">"data/processed/events.csv"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>coded <span class="op">=</span> pd.read_csv(<span class="st">"data/processed/manager_changes_coded.csv"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>panel <span class="op">=</span> panel.sort_values([<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"date"</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>panel[<span class="st">"row_id"</span>] <span class="op">=</span> np.arange(<span class="bu">len</span>(panel))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>wiki_seasons <span class="op">=</span> <span class="bu">set</span>(events[<span class="st">"season"</span>].unique())</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>panel <span class="op">=</span> panel[panel[<span class="st">"season"</span>].isin(wiki_seasons)].copy()</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Panel: </span><span class="sc">{</span><span class="bu">len</span>(panel)<span class="sc">:,}</span><span class="ss"> club-matches | seasons </span><span class="sc">{</span><span class="bu">min</span>(wiki_seasons)<span class="sc">}</span><span class="ss">–</span><span class="sc">{</span><span class="bu">max</span>(wiki_seasons)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Primary sackings: </span><span class="sc">{</span><span class="bu">int</span>(events[<span class="st">'in_primary_sample'</span>].<span class="bu">sum</span>())<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Panel: 75,720 club-matches | seasons 2004/05–2024/25
+Primary sackings: 585</code></pre>
+</div>
+</div>
+</section>
+<section id="measuring-the-bounce" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-the-bounce">Measuring the bounce</h2>
+<p>For each sacking, I mark <span class="math inline">\(t=0\)</span> as the last league match before the vacancy. The dependent variable is points per game over the next five league matches after that point. I chose five because it’s long enough to smooth out a single lucky result but short enough that you’re still measuring the early effect of the new manager, not his entire tenure. I also checked it separately: five matches limits contamination. By match eight, about 13% of sacked clubs have had another managerial change, compared to about 8% by match five. The ATT comes out near zero at three, five, and eight matches anyway, but five is the cleanest primary window (three and eight are robustness checks).</p>
+<p>Controls are other club-matches in the same seasons that look like a possible sacking moment but aren’t: no managerial change (sacking, resignation, caretaker ending, etc.) in a window of six matchweeks before and five after, at least six games of trailing form, and five matches remaining. “Kept the manager” has to mean that.</p>
+<div id="5b504612" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> panel.groupby([<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>], sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">9</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    panel[<span class="ss">f"lead_pts_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> g[<span class="st">"points"</span>].shift(<span class="op">-</span>k)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_ppg_window(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> [<span class="ss">f"lead_pts_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>)]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ok <span class="op">=</span> panel[cols].notna().<span class="bu">all</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    panel[<span class="ss">f"has_next_</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> ok</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    panel[<span class="ss">f"ppg_next_</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> panel[cols].mean(axis<span class="op">=</span><span class="dv">1</span>).where(ok)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> (<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    add_ppg_window(n)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>treated_ev <span class="op">=</span> events.query(<span class="st">"in_primary_sample == True"</span>).copy()</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>treated_ev[<span class="st">"date_vacancy"</span>] <span class="op">=</span> pd.to_datetime(treated_ev[<span class="st">"date_vacancy"</span>])</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>treated_ev[<span class="st">"event_id"</span>] <span class="op">=</span> np.arange(<span class="bu">len</span>(treated_ev))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> panel.merge(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    treated_ev[[<span class="st">"event_id"</span>, <span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"panel_club"</span>, <span class="st">"date_vacancy"</span>]],</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    left_on<span class="op">=</span>[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>],</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    right_on<span class="op">=</span>[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"panel_club"</span>],</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"inner"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> (</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    merged.loc[merged[<span class="st">"date"</span>] <span class="op">&lt;=</span> merged[<span class="st">"date_vacancy"</span>]]</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">"date"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"event_id"</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    .tail(<span class="dv">1</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    .copy()</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>t0[<span class="st">"treated"</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>ch <span class="op">=</span> coded.loc[</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    coded[<span class="st">"club_matched"</span>]</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> coded[<span class="st">"in_season_window"</span>]</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> coded[<span class="st">"panel_club"</span>].fillna(<span class="st">""</span>).ne(<span class="st">""</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> coded[<span class="st">"season"</span>].isin(wiki_seasons)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>].copy()</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>ch[<span class="st">"date_vacancy"</span>] <span class="op">=</span> pd.to_datetime(ch[<span class="st">"date_vacancy_parsed"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>ch <span class="op">=</span> ch[ch[<span class="st">"date_vacancy"</span>].notna()]</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>ch_m <span class="op">=</span> panel.merge(</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    ch[[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"panel_club"</span>, <span class="st">"date_vacancy"</span>]],</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    left_on<span class="op">=</span>[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>],</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    right_on<span class="op">=</span>[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"panel_club"</span>],</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"inner"</span>,</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>change_t0 <span class="op">=</span> (</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    ch_m.loc[ch_m[<span class="st">"date"</span>] <span class="op">&lt;=</span> ch_m[<span class="st">"date_vacancy"</span>]]</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">"date"</span>)</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"date_vacancy"</span>], sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    .tail(<span class="dv">1</span>)[[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"matchweek"</span>]]</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{<span class="st">"matchweek"</span>: <span class="st">"change_mw"</span>})</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>near <span class="op">=</span> panel.merge(change_t0, on<span class="op">=</span>[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>], how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>near[<span class="st">"near_change"</span>] <span class="op">=</span> (</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    near[<span class="st">"change_mw"</span>].notna()</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> (near[<span class="st">"matchweek"</span>] <span class="op">&gt;=</span> near[<span class="st">"change_mw"</span>] <span class="op">-</span> <span class="dv">6</span>)</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> (near[<span class="st">"matchweek"</span>] <span class="op">&lt;=</span> near[<span class="st">"change_mw"</span>] <span class="op">+</span> <span class="dv">5</span>)</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>near_ids <span class="op">=</span> <span class="bu">set</span>(near.loc[near[<span class="st">"near_change"</span>], <span class="st">"row_id"</span>])</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>treated_ids <span class="op">=</span> <span class="bu">set</span>(t0[<span class="st">"row_id"</span>])</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>ctrl <span class="op">=</span> panel.loc[</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    <span class="op">~</span>panel[<span class="st">"row_id"</span>].isin(treated_ids)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> <span class="op">~</span>panel[<span class="st">"row_id"</span>].isin(near_ids)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> panel[<span class="st">"has_next_5"</span>]</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> (panel[<span class="st">"trailing_matches"</span>] <span class="op">&gt;=</span> <span class="dv">6</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span> (panel[<span class="st">"matchweek"</span>] <span class="op">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>].copy()</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>ctrl[<span class="st">"treated"</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Treated (sacking t=0): </span><span class="sc">{</span><span class="bu">len</span>(t0)<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Control candidates:     </span><span class="sc">{</span><span class="bu">len</span>(ctrl)<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Treated (sacking t=0): 585
+Control candidates:     46,770</code></pre>
+</div>
+</div>
+</section>
+<section id="a-first-look-at-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="a-first-look-at-the-data">A first look at the data</h2>
+<section id="sackings-by-league" class="level3">
+<h3 class="anchored" data-anchor-id="sackings-by-league">Sackings by league</h3>
+<p>Primary-sample mid-season sackings, 2004/05–2024/25. Serie A fires the most; Ligue 1 the least. That’s not a puzzle I try to solve here — just the raw geography of the sample.</p>
+<div id="cce18aab" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>league_labels <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"premier_league"</span>: <span class="st">"Premier League"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"la_liga"</span>: <span class="st">"La Liga"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"serie_a"</span>: <span class="st">"Serie A"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bundesliga"</span>: <span class="st">"Bundesliga"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ligue_1"</span>: <span class="st">"Ligue 1"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>by_league <span class="op">=</span> (</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    t0[<span class="st">"league"</span>]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">map</span>(league_labels)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    .value_counts()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    .reindex(<span class="bu">list</span>(league_labels.values()))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>by_league.plot(kind<span class="op">=</span><span class="st">"barh"</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"#2c6eaf"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Number of mid-season sackings"</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">""</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Primary-sample sackings by league (2004/05–2024/25)"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(by_league):</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    ax.text(v <span class="op">+</span> <span class="dv">2</span>, i, <span class="bu">str</span>(<span class="bu">int</span>(v)), va<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, by_league.<span class="bu">max</span>() <span class="op">*</span> <span class="fl">1.15</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>by_league.rename(<span class="st">"sackings"</span>).to_frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sackings</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">league</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Premier League</th>
+<td>105</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">La Liga</th>
+<td>142</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Serie A</th>
+<td>168</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Bundesliga</th>
+<td>99</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Ligue 1</th>
+<td>71</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="the-naive-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="the-naive-comparison">The naive comparison</h3>
+<p>If you just compare sacked clubs to all unsacked club-matches, you get a bounce that looks huge.</p>
+<div id="3728ce09" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>naive <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"N"</span>: [<span class="bu">len</span>(t0), <span class="bu">len</span>(ctrl)],</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"PPG before (trailing 6)"</span>: [</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            t0[<span class="st">"trailing_6_ppg"</span>].mean(),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            ctrl[<span class="st">"trailing_6_ppg"</span>].mean(),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"PPG after (next 5)"</span>: [</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            t0[<span class="st">"ppg_next_5"</span>].mean(),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            ctrl[<span class="st">"ppg_next_5"</span>].mean(),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"Sacked"</span>, <span class="st">"All valid unsacked matches"</span>],</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>naive[<span class="st">"Change"</span>] <span class="op">=</span> naive[<span class="st">"PPG after (next 5)"</span>] <span class="op">-</span> naive[<span class="st">"PPG before (trailing 6)"</span>]</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>naive.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">N</th>
+<th data-quarto-table-cell-role="th">PPG before (trailing 6)</th>
+<th data-quarto-table-cell-role="th">PPG after (next 5)</th>
+<th data-quarto-table-cell-role="th">Change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Sacked</th>
+<td>585</td>
+<td>0.663</td>
+<td>1.211</td>
+<td>0.547</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">All valid unsacked matches</th>
+<td>46770</td>
+<td>1.451</td>
+<td>1.433</td>
+<td>-0.019</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Sacked clubs improve by over half a point per game. Looks like the bounce is real, right? But look at the “before” column. Sacked clubs were averaging 0.66 PPG, which is relegation form. Unsacked clubs were averaging 1.45. These groups aren’t comparable. The improvement after the sacking could just be a terrible run ending on its own.</p>
+<p>This is the bias in the naive comparison. When you compute the simple difference in outcomes between sacked and unsacked clubs, you’re actually getting two things mixed together: the real effect of the sacking (the ATT) plus the bias from comparing fundamentally different clubs. We can write this as:</p>
+<p><span class="math display">\[\text{Simple difference} = \text{ATT} + \text{Bias}\]</span></p>
+<p>The whole point of matching is to kill that bias term. If we can find unsacked clubs that were just as bad at the same point in the season, then any remaining difference in outcomes is closer to the true effect of the sacking.</p>
+</section>
+</section>
+<section id="coarsened-exact-matching" class="level2">
+<h2 class="anchored" data-anchor-id="coarsened-exact-matching">Coarsened exact matching</h2>
+<p>CEM is almost embarrassingly simple. Cut each covariate into bins. Put every sacking and every candidate stayer into a bin (a <em>stratum</em>). Drop any bin that doesn’t contain at least one sacking <em>and</em> one stayer. Then compare within what’s left.</p>
+<p>I coarsen as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Covariate</th>
+<th>Bins</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>League</td>
+<td>Exact (Premier League is not “like” Serie A)</td>
+</tr>
+<tr class="even">
+<td>Matchweek</td>
+<td>Early / mid / late (1–12, 13–24, 25+)</td>
+</tr>
+<tr class="odd">
+<td>League position</td>
+<td>Top / mid / bottom (1–6, 7–14, 15+)</td>
+</tr>
+<tr class="even">
+<td>Trailing 6 PPG</td>
+<td>Fixed bands on the 0–3 scale, denser in the bad-form region where sackings live</td>
+</tr>
+<tr class="odd">
+<td>Trailing 6 GD</td>
+<td>Very bad / bad / slightly negative / positive / good</td>
+</tr>
+</tbody>
+</table>
+<p>Each sacking counts as 1. Controls in a bin are down-weighted so they sum to the number of sackings in that bin. That’s the ATT: we care about clubs that <em>did</em> sack, and we reconstruct their <span class="math inline">\(Y(0)\)</span> from stayers who looked like them.</p>
+<div id="fb162727" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_bins(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> df.copy()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"mw_bin"</span>] <span class="op">=</span> pd.cut(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        out[<span class="st">"matchweek"</span>], bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">24</span>, <span class="dv">40</span>], labels<span class="op">=</span>[<span class="st">"early"</span>, <span class="st">"mid"</span>, <span class="st">"late"</span>]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"pos_bin"</span>] <span class="op">=</span> pd.cut(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        out[<span class="st">"league_position"</span>], bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">14</span>, <span class="dv">25</span>], labels<span class="op">=</span>[<span class="st">"top"</span>, <span class="st">"mid"</span>, <span class="st">"bottom"</span>]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"form_bin"</span>] <span class="op">=</span> pd.cut(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        out[<span class="st">"trailing_6_ppg"</span>],</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        bins<span class="op">=</span>[<span class="op">-</span><span class="fl">0.01</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">1.0</span>, <span class="fl">1.25</span>, <span class="fl">1.5</span>, <span class="fl">3.01</span>],</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>[<span class="st">"0-0.5"</span>, <span class="st">"0.5-0.75"</span>, <span class="st">"0.75-1"</span>, <span class="st">"1-1.25"</span>, <span class="st">"1.25-1.5"</span>, <span class="st">"1.5+"</span>],</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"gd_bin"</span>] <span class="op">=</span> pd.cut(</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        out[<span class="st">"trailing_6_gd"</span>],</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        bins<span class="op">=</span>[<span class="op">-</span><span class="dv">99</span>, <span class="op">-</span><span class="dv">8</span>, <span class="op">-</span><span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">99</span>],</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>[<span class="st">"vbad"</span>, <span class="st">"bad"</span>, <span class="st">"neg"</span>, <span class="st">"pos"</span>, <span class="st">"good"</span>],</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"stratum"</span>] <span class="op">=</span> (</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        out[[<span class="st">"league"</span>, <span class="st">"mw_bin"</span>, <span class="st">"pos_bin"</span>, <span class="st">"form_bin"</span>, <span class="st">"gd_bin"</span>]]</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        .astype(<span class="bu">str</span>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        .agg(<span class="st">"|"</span>.join, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> smd(x: pd.Series, t: pd.Series, w: pd.Series) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    mu1 <span class="op">=</span> x[t <span class="op">==</span> <span class="dv">1</span>].mean()</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    mu0 <span class="op">=</span> (x[t <span class="op">==</span> <span class="dv">0</span>] <span class="op">*</span> w[t <span class="op">==</span> <span class="dv">0</span>]).<span class="bu">sum</span>() <span class="op">/</span> w[t <span class="op">==</span> <span class="dv">0</span>].<span class="bu">sum</span>()</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (mu1 <span class="op">-</span> mu0) <span class="op">/</span> x.std(ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>pool <span class="op">=</span> pd.concat([add_bins(t0), add_bins(ctrl)], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> pool.groupby(<span class="st">"stratum"</span>)[<span class="st">"treated"</span>].agg(n_t<span class="op">=</span><span class="st">"sum"</span>, n<span class="op">=</span><span class="st">"size"</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>counts[<span class="st">"n_c"</span>] <span class="op">=</span> counts[<span class="st">"n"</span>] <span class="op">-</span> counts[<span class="st">"n_t"</span>]</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>keep <span class="op">=</span> counts.query(<span class="st">"n_t &gt;= 1 and n_c &gt;= 1"</span>).index</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>matched <span class="op">=</span> pool.loc[pool[<span class="st">"stratum"</span>].isin(keep)].copy()</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>n_t <span class="op">=</span> matched.groupby(<span class="st">"stratum"</span>)[<span class="st">"treated"</span>].transform(<span class="st">"sum"</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>n_c <span class="op">=</span> matched.groupby(<span class="st">"stratum"</span>)[<span class="st">"treated"</span>].transform(<span class="kw">lambda</span> s: (<span class="dv">1</span> <span class="op">-</span> s).<span class="bu">sum</span>())</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>matched[<span class="st">"w"</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>] <span class="op">=</span> (</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    n_t[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>] <span class="op">/</span> n_c[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>n_sacked <span class="op">=</span> <span class="bu">int</span>(matched[<span class="st">"treated"</span>].<span class="bu">sum</span>())</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>n_stay <span class="op">=</span> <span class="bu">int</span>((matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Matched sackings: </span><span class="sc">{</span>n_sacked<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span><span class="bu">len</span>(t0)<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Matched stayers:  </span><span class="sc">{</span>n_stay<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Strata used:      </span><span class="sc">{</span>matched<span class="sc">.</span>loc[matched.treated <span class="op">==</span> <span class="dv">1</span>, <span class="st">'stratum'</span>]<span class="sc">.</span>nunique()<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Matched sackings: 581 of 585
+Matched stayers:  19,015
+Strata used:      236</code></pre>
+</div>
+</div>
+<section id="did-matching-work" class="level3">
+<h3 class="anchored" data-anchor-id="did-matching-work">Did matching work?</h3>
+<p>Standardized mean differences (SMD) before vs after matching. Raw, sacked clubs are much worse on form and table position. After CEM, those gaps collapse toward zero — which is the whole point.</p>
+<div id="a25bfaba" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>covs <span class="op">=</span> [</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"matchweek"</span>, <span class="st">"Matchweek"</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"league_position"</span>, <span class="st">"League position"</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"trailing_6_ppg"</span>, <span class="st">"Trailing 6 PPG"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"trailing_6_gd"</span>, <span class="st">"Trailing 6 GD"</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> pd.concat([t0.assign(w<span class="op">=</span><span class="fl">1.0</span>), ctrl.assign(w<span class="op">=</span><span class="fl">1.0</span>)], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>balance <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"SMD (raw)"</span>: [smd(raw[c], raw[<span class="st">"treated"</span>], raw[<span class="st">"w"</span>]) <span class="cf">for</span> c, _ <span class="kw">in</span> covs],</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"SMD (matched)"</span>: [</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            smd(matched[c], matched[<span class="st">"treated"</span>], matched[<span class="st">"w"</span>]) <span class="cf">for</span> c, _ <span class="kw">in</span> covs</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Mean sacked"</span>: [matched.loc[matched.treated <span class="op">==</span> <span class="dv">1</span>, c].mean() <span class="cf">for</span> c, _ <span class="kw">in</span> covs],</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Mean stay (weighted)"</span>: [</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            (</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                matched.loc[matched.treated <span class="op">==</span> <span class="dv">0</span>, c]</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                <span class="op">*</span> matched.loc[matched.treated <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>]</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            ).<span class="bu">sum</span>()</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">/</span> matched.loc[matched.treated <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>].<span class="bu">sum</span>()</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> c, _ <span class="kw">in</span> covs</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[label <span class="cf">for</span> _, label <span class="kw">in</span> covs],</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>balance.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">SMD (raw)</th>
+<th data-quarto-table-cell-role="th">SMD (matched)</th>
+<th data-quarto-table-cell-role="th">Mean sacked</th>
+<th data-quarto-table-cell-role="th">Mean stay (weighted)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Matchweek</th>
+<td>-0.218</td>
+<td>-0.064</td>
+<td>17.448</td>
+<td>17.934</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">League position</th>
+<td>1.138</td>
+<td>0.039</td>
+<td>15.435</td>
+<td>15.211</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Trailing 6 PPG</th>
+<td>-1.275</td>
+<td>-0.049</td>
+<td>0.661</td>
+<td>0.693</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Trailing 6 GD</th>
+<td>-1.168</td>
+<td>-0.031</td>
+<td>-5.540</td>
+<td>-5.367</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="the-att" class="level3">
+<h3 class="anchored" data-anchor-id="the-att">The ATT</h3>
+<p>Difference in next-five PPG: sacked minus matched stayers. If the new manager bounce is a <em>sacking</em> effect, this number should be clearly positive. If it’s just the hole filling in, it should sit near zero.</p>
+<div id="b6bf8752" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">"ppg_next_5"</span>].mean()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>w0 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> (w0 <span class="op">*</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"ppg_next_5"</span>]).<span class="bu">sum</span>() <span class="op">/</span> w0.<span class="bu">sum</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>att <span class="op">=</span> y1 <span class="op">-</span> y0</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="bu">int</span>(matched[<span class="st">"treated"</span>].<span class="bu">sum</span>())</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">"ppg_next_5"</span>].std(ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>s0 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"ppg_next_5"</span>].std(ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>se <span class="op">=</span> np.sqrt(s1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1 <span class="op">+</span> s0<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>att_table <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Next-5 PPG"</span>: [y1, y0, att],</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"SE"</span>: [np.nan, np.nan, se],</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI low"</span>: [np.nan, np.nan, att <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> se],</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI high"</span>: [np.nan, np.nan, att <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> se],</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"Sacked (matched)"</span>, <span class="st">"Stay (matched)"</span>, <span class="st">"ATT (sack − stay)"</span>],</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>att_table.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Next-5 PPG</th>
+<th data-quarto-table-cell-role="th">SE</th>
+<th data-quarto-table-cell-role="th">95% CI low</th>
+<th data-quarto-table-cell-role="th">95% CI high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Sacked (matched)</th>
+<td>1.208</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Stay (matched)</th>
+<td>1.203</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">ATT (sack − stay)</th>
+<td>0.004</td>
+<td>0.038</td>
+<td>-0.07</td>
+<td>0.079</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Matched next-five PPG is about <strong>1.21</strong> whether you sacked or stayed. The ATT is roughly <strong>0.004</strong>, with a 95% interval of about <strong>[−0.07, +0.08]</strong>. That’s a rounding error. Sacking doesn’t help in the next five games. It doesn’t hurt either.</p>
+<p>One caveat on the standard errors: they’re a simple two-sample approximation. ATT weights make the stayers sum to the number of sackings, so I use that <span class="math inline">\(n\)</span> on both sides. Club-clustered SEs would be a bit wider, not narrower. It wouldn’t change the conclusion.</p>
+</section>
+</section>
+<section id="event-time-plot" class="level2">
+<h2 class="anchored" data-anchor-id="event-time-plot">Event-time plot</h2>
+<p>This is the plot that tells the whole story. <span class="math inline">\(t=0\)</span> is the last match before the vacancy for sackings, and the matched slump match for stayers.</p>
+<div id="62b8be15" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>units <span class="op">=</span> matched[</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"date"</span>, <span class="st">"matchweek"</span>, <span class="st">"treated"</span>, <span class="st">"w"</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>].rename(columns<span class="op">=</span>{<span class="st">"date"</span>: <span class="st">"t0_date"</span>, <span class="st">"matchweek"</span>: <span class="st">"t0_matchweek"</span>})</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>units[<span class="st">"unit_id"</span>] <span class="op">=</span> np.arange(<span class="bu">len</span>(units))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>traj_m <span class="op">=</span> panel.merge(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    units[</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"unit_id"</span>, <span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"t0_date"</span>, <span class="st">"t0_matchweek"</span>, <span class="st">"treated"</span>, <span class="st">"w"</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span>[<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>],</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"inner"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>pre <span class="op">=</span> traj_m.loc[traj_m[<span class="st">"date"</span>] <span class="op">&lt;=</span> traj_m[<span class="st">"t0_date"</span>]].copy()</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>pre[<span class="st">"t"</span>] <span class="op">=</span> pre[<span class="st">"matchweek"</span>] <span class="op">-</span> pre[<span class="st">"t0_matchweek"</span>]</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>pre <span class="op">=</span> pre.loc[pre[<span class="st">"t"</span>].between(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>)]</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>post <span class="op">=</span> traj_m.loc[traj_m[<span class="st">"date"</span>] <span class="op">&gt;</span> traj_m[<span class="st">"t0_date"</span>]].copy()</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>post[<span class="st">"t"</span>] <span class="op">=</span> post.groupby(<span class="st">"unit_id"</span>)[<span class="st">"date"</span>].rank(method<span class="op">=</span><span class="st">"first"</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>post <span class="op">=</span> post.loc[post[<span class="st">"t"</span>].between(<span class="dv">1</span>, <span class="dv">5</span>)]</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>traj <span class="op">=</span> pd.concat([pre, post], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    traj.groupby([<span class="st">"treated"</span>, <span class="st">"t"</span>], group_keys<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        <span class="kw">lambda</span> g: pd.Series(</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>                <span class="st">"mean_ppg"</span>: np.average(g[<span class="st">"points"</span>], weights<span class="op">=</span>g[<span class="st">"w"</span>]),</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>                <span class="st">"n"</span>: g[<span class="st">"unit_id"</span>].nunique(),</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>        include_groups<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>summary[<span class="st">"group"</span>] <span class="op">=</span> summary[<span class="st">"treated"</span>].<span class="bu">map</span>({<span class="dv">1</span>: <span class="st">"Sacked"</span>, <span class="dv">0</span>: <span class="st">"Stay (matched)"</span>})</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">"Sacked"</span>: <span class="st">"#2c6eaf"</span>, <span class="st">"Stay (matched)"</span>: <span class="st">"#d95f02"</span>}</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, g <span class="kw">in</span> summary.groupby(<span class="st">"group"</span>):</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> g.sort_values(<span class="st">"t"</span>)</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    ax.plot(</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>        g[<span class="st">"t"</span>],</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>        g[<span class="st">"mean_ppg"</span>],</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">"o"</span>,</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span>name,</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>colors[name],</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"gray"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Matches relative to $t=0$ (reference match)"</span>)</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Weighted mean points"</span>)</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Event-time trajectory: sacked vs matched stayers"</span>)</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>    summary.pivot(index<span class="op">=</span><span class="st">"t"</span>, columns<span class="op">=</span><span class="st">"group"</span>, values<span class="op">=</span><span class="st">"mean_ppg"</span>)</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>    [[<span class="st">"Sacked"</span>, <span class="st">"Stay (matched)"</span>]]</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">group</th>
+<th data-quarto-table-cell-role="th">Sacked</th>
+<th data-quarto-table-cell-role="th">Stay (matched)</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">t</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">-6</th>
+<td>0.963</td>
+<td>1.161</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">-5</th>
+<td>0.898</td>
+<td>0.675</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">-4</th>
+<td>0.821</td>
+<td>0.710</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">-3</th>
+<td>0.751</td>
+<td>0.707</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">-2</th>
+<td>0.774</td>
+<td>0.703</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">-1</th>
+<td>0.556</td>
+<td>0.683</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>0.227</td>
+<td>0.680</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>1.188</td>
+<td>1.248</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>1.298</td>
+<td>1.219</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>1.205</td>
+<td>1.211</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>1.188</td>
+<td>1.167</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>1.160</td>
+<td>1.172</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Before the sacking, the blue line crashes. That’s the decline that gets a manager fired. The orange line (matched stayers) is low and relatively flat — clubs in similar form who kept their manager.</p>
+<p>After <span class="math inline">\(t=0\)</span>, both lines jump to roughly the same level and stay there. Sacked clubs go from about 0.23 PPG at <span class="math inline">\(t=0\)</span> to about 1.2. Matched stayers recover at nearly the same rate, from about 0.68 to about 1.2.</p>
+<p>The bounce is real in the sense that results <em>do</em> improve after a sacking. But clubs in similar situations who kept their manager improved by roughly the same amount. The ATT of 0.004 confirms it: sacking the manager produces no measurable advantage over keeping him.</p>
+</section>
+<section id="robustness-three-five-and-eight-matches" class="level2">
+<h2 class="anchored" data-anchor-id="robustness-three-five-and-eight-matches">Robustness: three, five, and eight matches</h2>
+<p>Five is the headline window. Here I re-run the same CEM for next-3 and next-8 PPG (only clubs that actually have that many games left). If the null were an artifact of picking five, it would move.</p>
+<div id="3a95d8a1" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matched_att(outcome: <span class="bu">str</span>, require: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t0.loc[t0[require]].copy()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> panel.loc[</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">~</span>panel[<span class="st">"row_id"</span>].isin(treated_ids)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">&amp;</span> <span class="op">~</span>panel[<span class="st">"row_id"</span>].isin(near_ids)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">&amp;</span> panel[require]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">&amp;</span> (panel[<span class="st">"trailing_matches"</span>] <span class="op">&gt;=</span> <span class="dv">6</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">&amp;</span> (panel[<span class="st">"matchweek"</span>] <span class="op">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    ].copy()</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    c[<span class="st">"treated"</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    pool_w <span class="op">=</span> pd.concat([add_bins(t), add_bins(c)], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    cts <span class="op">=</span> pool_w.groupby(<span class="st">"stratum"</span>)[<span class="st">"treated"</span>].agg(n_t<span class="op">=</span><span class="st">"sum"</span>, n<span class="op">=</span><span class="st">"size"</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    cts[<span class="st">"n_c"</span>] <span class="op">=</span> cts[<span class="st">"n"</span>] <span class="op">-</span> cts[<span class="st">"n_t"</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    keep_w <span class="op">=</span> cts.query(<span class="st">"n_t &gt;= 1 and n_c &gt;= 1"</span>).index</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> pool_w.loc[pool_w[<span class="st">"stratum"</span>].isin(keep_w)].copy()</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    nt <span class="op">=</span> m.groupby(<span class="st">"stratum"</span>)[<span class="st">"treated"</span>].transform(<span class="st">"sum"</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    nc <span class="op">=</span> m.groupby(<span class="st">"stratum"</span>)[<span class="st">"treated"</span>].transform(<span class="kw">lambda</span> s: (<span class="dv">1</span> <span class="op">-</span> s).<span class="bu">sum</span>())</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    m[<span class="st">"w"</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    m.loc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>] <span class="op">=</span> nt[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>] <span class="op">/</span> nc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    yy1 <span class="op">=</span> m.loc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">1</span>, outcome].mean()</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    ww0 <span class="op">=</span> m.loc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>]</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    yy0 <span class="op">=</span> (ww0 <span class="op">*</span> m.loc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, outcome]).<span class="bu">sum</span>() <span class="op">/</span> ww0.<span class="bu">sum</span>()</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> yy1 <span class="op">-</span> yy0</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    nn <span class="op">=</span> <span class="bu">int</span>(m[<span class="st">"treated"</span>].<span class="bu">sum</span>())</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    ss1 <span class="op">=</span> m.loc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">1</span>, outcome].std(ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    ss0 <span class="op">=</span> m.loc[m[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, outcome].std(ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    sse <span class="op">=</span> np.sqrt(ss1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> nn <span class="op">+</span> ss0<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> nn)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Window"</span>: outcome.replace(<span class="st">"ppg_next_"</span>, <span class="st">"Next "</span>),</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"N sacked"</span>: nn,</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Sacked PPG"</span>: yy1,</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Stay PPG"</span>: yy0,</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ATT"</span>: a,</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">"SE"</span>: sse,</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI"</span>: <span class="ss">f"[</span><span class="sc">{</span>a <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> sse<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>a <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> sse<span class="sc">:.3f}</span><span class="ss">]"</span>,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>robust <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>        matched_att(<span class="st">"ppg_next_3"</span>, <span class="st">"has_next_3"</span>),</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        matched_att(<span class="st">"ppg_next_5"</span>, <span class="st">"has_next_5"</span>),</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>        matched_att(<span class="st">"ppg_next_8"</span>, <span class="st">"has_next_8"</span>),</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>).set_index(<span class="st">"Window"</span>)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>robust.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">N sacked</th>
+<th data-quarto-table-cell-role="th">Sacked PPG</th>
+<th data-quarto-table-cell-role="th">Stay PPG</th>
+<th data-quarto-table-cell-role="th">ATT</th>
+<th data-quarto-table-cell-role="th">SE</th>
+<th data-quarto-table-cell-role="th">95% CI</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Window</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Next 3</th>
+<td>582</td>
+<td>1.231</td>
+<td>1.223</td>
+<td>0.009</td>
+<td>0.045</td>
+<td>[-0.080, 0.097]</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Next 5</th>
+<td>581</td>
+<td>1.208</td>
+<td>1.203</td>
+<td>0.004</td>
+<td>0.038</td>
+<td>[-0.070, 0.079]</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Next 8</th>
+<td>539</td>
+<td>1.181</td>
+<td>1.184</td>
+<td>-0.003</td>
+<td>0.033</td>
+<td>[-0.067, 0.061]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The ATT stays a rounding error from zero at three, five, and eight matches. Five isn’t doing special work; it’s just the cleanest bounce window.</p>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
+<p>I’m far from the first person to look into this. The new manager bounce has been studied in sports economics for years. Ter Weel (2011) found no clear performance gain from managerial turnover in Dutch football. De Paola and Scoppa (2012) reached a similar conclusion for Serie A. Van Ours and van Tuijl (2016) made the regression-to-the-mean point most clearly: results improve after a sacking, but they also improve for clubs that had a similar bad run and kept their manager. Bryson et al.&nbsp;(2024) looked across four countries and again found little short-run benefit once you build a proper comparison group. My results are in line with all of this.</p>
+<p>I wanted to do it myself because it’s a fun dataset, I wanted to practice causal inference on something I actually care about, and I hadn’t seen this question tackled with CEM specifically. Most of these papers use difference-in-differences, nearest-neighbor matching, or entropy balancing. CEM is in the same family but it forces the overlap problem into the open: if a sacking has no comparable unsacked club in its bin, it drops out entirely instead of getting a fuzzy propensity weight.</p>
+<p>The result: <strong>sacking your manager doesn’t help in the next five games, and it doesn’t hurt either.</strong> The bounce in the raw data is almost entirely regression to the mean. Clubs that kept their manager through a similar rough patch recovered at the same rate. Matched next-five PPG is about 1.21 whether you sacked or stayed. The ATT is roughly zero.</p>
+<p>That said, there’s more to dig into:</p>
+<ol type="1">
+<li><strong>Was the slump a surprise?</strong> The main threat to this design is that boards fire after bad results <em>relative to expectations</em>, not just after bad absolute form. Matching on trailing PPG alone may still mix “we were supposed to be 18th” with “we were supposed to be 6th.” Bookmaker odds are on football-data.co.uk; folding expected points into the match (à la Van Ours and van Tuijl) is the cleanest upgrade.</li>
+<li><strong>Heterogeneity.</strong> Does a sacking do anything different in the bottom six versus mid-table? Same machinery, split the sample — only if the cells stay thick.</li>
+<li><strong>Longer horizons.</strong> Five matches is the bounce. A twenty-game outcome would answer a different question (“does the hire eventually matter?”) and would need care about clubs that sack again mid-window.</li>
+</ol>
+<p>Until then: enjoy the doom-scroll if you want, but don’t expect the press conference to move the points column on its own. The table was always going to regress a bit toward the mean.</p>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<ul>
+<li>Bryson, A., Buraimo, B., Farnell, A., &amp; Simmons, R. (2024). Special ones? The effect of head coaches on football team performance. <em>Scottish Journal of Political Economy</em>.</li>
+<li>De Paola, M., &amp; Scoppa, V. (2012). The effects of managerial turnover. <em>Journal of Sports Economics</em>.</li>
+<li>Ter Weel, B. (2011). Does manager turnover improve firm performance? Evidence from Dutch soccer, 1986–2004. <em>De Economist</em>.</li>
+<li>van Ours, J. C., &amp; van Tuijl, M. A. (2016). In-season head-coach dismissals and the performance of professional football teams. <em>Economic Inquiry</em>.</li>
+</ul>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->

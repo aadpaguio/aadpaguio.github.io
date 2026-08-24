@@ -12,7 +12,7 @@ I spent three years as a data scientist at BPI, where I built the MLOps library 
 ## Selected
 
 ::: {.selected-list}
-- **[Does the New Manager Bounce Exist?](blog/new-manager-bounce/)** — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.
+- **[The new manager bounce: does sacking actually help?](blog/new-manager-bounce/)** — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.
 - **[bpi-standard-ml](https://github.com/aadpaguio/bpi-standard-ml-demo)** — A Python MLOps library used by BPI's data science group. Model registry, feature store, drift detection.
 - **[pyfanova](https://github.com/aadpaguio/pyfanova)** — Gradient-boosted trees made inherently interpretable through Functional ANOVA.
 :::

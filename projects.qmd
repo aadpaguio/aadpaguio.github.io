@@ -17,7 +17,7 @@ Gradient-boosted trees made inherently interpretable by limiting interactions to
 
 <p class="tech">Python · XGBoost · NumPy · scikit-learn · Functional ANOVA</p>
 
-## [Does the New Manager Bounce Exist?](blog/new-manager-bounce/)
+## [The new manager bounce](blog/new-manager-bounce/)
 
 A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.
 
