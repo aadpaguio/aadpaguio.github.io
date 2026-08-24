@@ -4,6 +4,10 @@
 **/.ipynb_checkpoints/
 al-folio/
 blog/new-manager-bounce/data/raw/
+/main.py
+/pyproject.toml
+/uv.lock
+/.python-version
 
 /.quarto/
 **/*.quarto_ipynb
