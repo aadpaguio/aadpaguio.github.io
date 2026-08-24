@@ -1,0 +1,12 @@
+toc: true
+toc-depth: 3
+toc-location: right
+date-format: long
+execute:
+  freeze: auto
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    code-fold: false

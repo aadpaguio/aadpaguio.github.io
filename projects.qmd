@@ -1,0 +1,32 @@
+---
+title: "Projects"
+toc: false
+---
+
+::: {.project-list}
+
+## [bpi-standard-ml](https://github.com/aadpaguio/bpi-standard-ml-demo)
+
+A Python MLOps library that standardized model development for BPI's data science group, cutting time-to-model by 70% for 50+ scientists.
+
+<p class="tech">Python · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB</p>
+
+## [pyfanova](https://github.com/aadpaguio/pyfanova)
+
+Gradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.
+
+<p class="tech">Python · XGBoost · NumPy · scikit-learn · Functional ANOVA</p>
+
+## [Does the New Manager Bounce Exist?](blog/new-manager-bounce/)
+
+A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.
+
+<p class="tech">Python · causal inference · CEM · football</p>
+
+## TBMC POS and Inventory
+
+A production POS and inventory system for a multi-branch business, replacing manual record-keeping with live transactions and reporting.
+
+<p class="tech">Next.js · TypeScript · PostgreSQL · Metabase · Vercel</p>
+
+:::

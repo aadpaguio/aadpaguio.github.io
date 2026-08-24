@@ -1,0 +1,18 @@
+---
+title: "Does the New Manager Bounce Exist?"
+subtitle: "A causal inference exercise with 20 years of Big Five football data"
+date: 2026-08-24
+author: "Arnald Paguio"
+categories: [football, causal-inference, python]
+description: "When a club sacks its manager, results often improve. Matching on pre-treatment form tests whether the sacking caused the bounce, or whether it was coming anyway."
+---
+
+When a football club sacks its manager, the next few matches often look better. Commentators call it the new manager bounce. The question is whether the sacking *caused* the improvement, or whether mean reversion was going to deliver it anyway.
+
+## Association is not causation
+
+Teams that fire their manager are not a random sample. They fire after a collapse. If you compare the five matches before a sacking to the five after, you will almost always see a bounce — and you will have learned nothing about the treatment. The interesting comparison is treated clubs versus similar clubs that were also in a slump but kept their manager.
+
+## What's next
+
+This post will use coarsened exact matching on 20 years of Big Five league data to estimate the average treatment effect on the treated. The notebook version — code, balance tables, and event-time plots — will replace this page. Until then, the question stands: after you match on pre-treatment form, is there anything left of the bounce?

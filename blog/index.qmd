@@ -1,0 +1,16 @@
+---
+title: "Blog"
+toc: false
+listing:
+  contents: .
+  sort: "date desc"
+  type: default
+  sort-ui: false
+  filter-ui: false
+  categories: false
+  fields: [date, title, description]
+page-layout: article
+format:
+  html:
+    toc: false
+---

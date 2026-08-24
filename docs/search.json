@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "A Python MLOps library that standardized model development for BPI’s data science group, cutting time-to-model by 70% for 50+ scientists.\n\nPython · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB\n\n\n\n\nGradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.\n\nPython · XGBoost · NumPy · scikit-learn · Functional ANOVA\n\n\n\n\nA causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.\n\nPython · causal inference · CEM · football\n\n\n\n\nA production POS and inventory system for a multi-branch business, replacing manual record-keeping with live transactions and reporting.\n\nNext.js · TypeScript · PostgreSQL · Metabase · Vercel"
+  },
+  {
+    "objectID": "projects.html#bpi-standard-ml",
+    "href": "projects.html#bpi-standard-ml",
+    "title": "Projects",
+    "section": "",
+    "text": "A Python MLOps library that standardized model development for BPI’s data science group, cutting time-to-model by 70% for 50+ scientists.\n\nPython · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB"
+  },
+  {
+    "objectID": "projects.html#pyfanova",
+    "href": "projects.html#pyfanova",
+    "title": "Projects",
+    "section": "",
+    "text": "Gradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.\n\nPython · XGBoost · NumPy · scikit-learn · Functional ANOVA"
+  },
+  {
+    "objectID": "projects.html#does-the-new-manager-bounce-exist",
+    "href": "projects.html#does-the-new-manager-bounce-exist",
+    "title": "Projects",
+    "section": "",
+    "text": "A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.\n\nPython · causal inference · CEM · football"
+  },
+  {
+    "objectID": "projects.html#tbmc-pos-and-inventory",
+    "href": "projects.html#tbmc-pos-and-inventory",
+    "title": "Projects",
+    "section": "",
+    "text": "A production POS and inventory system for a multi-branch business, replacing manual record-keeping with live transactions and reporting.\n\nNext.js · TypeScript · PostgreSQL · Metabase · Vercel"
+  },
+  {
+    "objectID": "blog/new-manager-bounce/index.html",
+    "href": "blog/new-manager-bounce/index.html",
+    "title": "Does the New Manager Bounce Exist?",
+    "section": "",
+    "text": "When a football club sacks its manager, the next few matches often look better. Commentators call it the new manager bounce. The question is whether the sacking caused the improvement, or whether mean reversion was going to deliver it anyway."
+  },
+  {
+    "objectID": "blog/new-manager-bounce/index.html#association-is-not-causation",
+    "href": "blog/new-manager-bounce/index.html#association-is-not-causation",
+    "title": "Does the New Manager Bounce Exist?",
+    "section": "Association is not causation",
+    "text": "Association is not causation\nTeams that fire their manager are not a random sample. They fire after a collapse. If you compare the five matches before a sacking to the five after, you will almost always see a bounce — and you will have learned nothing about the treatment. The interesting comparison is treated clubs versus similar clubs that were also in a slump but kept their manager."
+  },
+  {
+    "objectID": "blog/new-manager-bounce/index.html#whats-next",
+    "href": "blog/new-manager-bounce/index.html#whats-next",
+    "title": "Does the New Manager Bounce Exist?",
+    "section": "What’s next",
+    "text": "What’s next\nThis post will use coarsened exact matching on 20 years of Big Five league data to estimate the average treatment effect on the treated. The notebook version — code, balance tables, and event-time plots — will replace this page. Until then, the question stands: after you match on pre-treatment form, is there anything left of the bounce?"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Does the New Manager Bounce Exist?\n\n\nWhen a club sacks its manager, results often improve. Matching on pre-treatment form tests whether the sacking caused the bounce, or whether it was coming anyway.\n\n\n\n\n\nAugust 24, 2026\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Arnald Paguio",
+    "section": "",
+    "text": "Data scientist. MS student at Boston University. Interested in causal inference, football analytics, and MLOps.\nI spent three years as a data scientist at BPI, where I built the MLOps library our team used to ship models — cutting development time by 70% and supporting more than 50 data scientists. Now I’m at BU going deeper on the methods, especially causal inference.\nGitHub · LinkedIn · Email"
+  },
+  {
+    "objectID": "index.html#selected",
+    "href": "index.html#selected",
+    "title": "Arnald Paguio",
+    "section": "Selected",
+    "text": "Selected\n\n\nDoes the New Manager Bounce Exist? — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.\nbpi-standard-ml — A Python MLOps library used by BPI’s data science group. Model registry, feature store, drift detection.\npyfanova — Gradient-boosted trees made inherently interpretable through Functional ANOVA."
+  }
+]

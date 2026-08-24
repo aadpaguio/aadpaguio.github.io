@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - .nojekyll
+  render:
+    - "*.qmd"
+    - "blog/**/*.qmd"
+
+website:
+  title: "Arnald Paguio"
+  site-url: https://aadpaguio.github.io
+  description: "Data scientist. MS student at Boston University. Causal inference, football analytics, and MLOps."
+  search: false
+  reader-mode: false
+  back-to-top-navigation: false
+  bread-crumbs: false
+  navbar:
+    background: light
+    foreground: "#1a1a1a"
+    pinned: true
+    title: "Arnald Paguio"
+    right:
+      - text: Projects
+        href: projects.qmd
+      - text: Blog
+        href: blog/index.qmd
+  page-footer:
+    center: "[adpaguio@bu.edu](mailto:adpaguio@bu.edu) · [GitHub](https://github.com/aadpaguio)"
+
+format:
+  html:
+    theme: [default, theme.scss]
+    css: custom.css
+    toc: false
+    toc-location: right
+    toc-depth: 3
+    code-fold: false
+    code-copy: true
+    highlight-style: github
+    fontsize: 17px
+    linestretch: 1.65
+    max-width: 760px
+    mainfont: "Inter, system-ui, sans-serif"
+    monofont: "JetBrains Mono, ui-monospace, monospace"
+    page-layout: article
+    title-block-banner: false
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+execute:
+  freeze: auto

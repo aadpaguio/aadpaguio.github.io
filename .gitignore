@@ -1,0 +1,8 @@
+.quarto/
+.DS_Store
+/.luarc.json
+**/.ipynb_checkpoints/
+al-folio/
+
+/.quarto/
+**/*.quarto_ipynb

@@ -1,0 +1,18 @@
+---
+title: "Arnald Paguio"
+toc: false
+---
+
+Data scientist. MS student at Boston University. Interested in causal inference, football analytics, and MLOps.
+
+I spent three years as a data scientist at BPI, where I built the MLOps library our team used to ship models — cutting development time by 70% and supporting more than 50 data scientists. Now I'm at BU going deeper on the methods, especially causal inference.
+
+<span class="links">[GitHub](https://github.com/aadpaguio) · [LinkedIn](https://www.linkedin.com/in/arnald-paguio-782907162) · [Email](mailto:adpaguio@bu.edu)</span>
+
+## Selected
+
+::: {.selected-list}
+- **[Does the New Manager Bounce Exist?](blog/new-manager-bounce/)** — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.
+- **[bpi-standard-ml](https://github.com/aadpaguio/bpi-standard-ml-demo)** — A Python MLOps library used by BPI's data science group. Model registry, feature store, drift detection.
+- **[pyfanova](https://github.com/aadpaguio/pyfanova)** — Gradient-boosted trees made inherently interpretable through Functional ANOVA.
+:::

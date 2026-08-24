@@ -1,0 +1,60 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-family-monospace: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+$font-size-root: 17px;
+$body-bg: #fafafa;
+$body-color: #1a1a1a;
+$link-color: #1a1a1a;
+$link-hover-color: #000000;
+$light: #fafafa;
+$border-color: #e5e7eb;
+$navbar-bg: #fafafa;
+$navbar-fg: #1a1a1a;
+$navbar-hl: #1a1a1a;
+$navbar-padding-y: 0.85rem;
+$footer-bg: #fafafa;
+$footer-fg: #666666;
+$code-block-bg: #f3f4f6;
+$code-bg: #f3f4f6;
+$code-color: #1a1a1a;
+$toc-color: #666666;
+$toc-font-size: 0.9rem;
+$toc-active-border: #1a1a1a;
+$toc-inactive-border: #e5e7eb;
+$headings-font-weight: 600;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-rounded: false;
+
+/*-- scss:rules --*/
+.navbar {
+  border-bottom: 1px solid $border-color;
+  box-shadow: none;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+#quarto-header {
+  border-bottom: none;
+}
+
+nav[role="doc-toc"] {
+  border-left: none;
+}
+
+div.sourceCode {
+  border: none;
+  background-color: $code-block-bg;
+}
+
+pre.sourceCode {
+  border: none;
+}
