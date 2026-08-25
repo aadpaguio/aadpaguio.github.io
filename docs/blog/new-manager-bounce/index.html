@@ -537,7 +537,7 @@ Control candidates:     46,770</code></pre>
 </div>
 </div>
 <p>As you can see, sacked clubs improve by over half a point per game! Looks like the bounce is real, right? But look at the “before” column. Sacked clubs were averaging 0.66 PPG, which is relegation form. Unsacked clubs were averaging 1.45. These groups aren’t comparable. The improvement after the sacking could just be terrible form regressing to the mean.</p>
-<p>This is the bias in the naive comparison. When you compute the simple difference in outcomes between sacked and unsacked clubs, you’re actually getting two things mixed together: the real effect of the sacking (the ATT) plus the bias from comparing fundamentally different clubs. We can write this as:</p>
+<p>This is the <strong>bias</strong> in the naive comparison. When you compute the simple difference in outcomes between sacked and unsacked clubs, you’re actually getting two things mixed together: the real effect of the sacking (the ATT) plus the bias from comparing fundamentally different clubs. We can write this as:</p>
 <p><span class="math display">\[\text{Simple difference} = \text{ATT} + \text{Bias}\]</span></p>
 <p>The whole point of matching is to kill that bias term. If we can find unsacked clubs that were just as bad at the same point in the season, then any remaining difference in outcomes is closer to the true effect of the sacking.</p>
 </section>
