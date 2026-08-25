@@ -160,14 +160,19 @@ main.content {
   max-width: 760px;
 }
 
+p:has(> img.lede-figure),
 figure:has(.lede-figure) {
   margin: 1.75rem 0;
   text-align: center;
 }
 
+img.lede-figure,
 figure:has(.lede-figure) img {
-  max-width: min(100%, 480px);
+  display: block;
+  max-width: min(100%, 340px);
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid var(--border);
   border-radius: 6px;
 }
