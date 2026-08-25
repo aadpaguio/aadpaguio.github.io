@@ -9,4 +9,4 @@ format:
     toc: true
     toc-depth: 3
     toc-location: right
-    code-fold: false
+    code-fold: true
