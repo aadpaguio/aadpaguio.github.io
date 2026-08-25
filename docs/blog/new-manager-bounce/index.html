@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arnald Paguio">
-<meta name="dcterms.date" content="2026-08-24">
+<meta name="dcterms.date" content="2026-08-21">
 <meta name="description" content="When a club sacks its manager, results often improve. Matching on pre-treatment form tests whether the sacking caused the bounce, or whether it was coming anyway.">
 
 <title>The New Manager Bounce: Does sacking actually help – Arnald Paguio</title>
@@ -229,7 +229,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 24, 2026</p>
+      <p class="date">August 21, 2026</p>
     </div>
   </div>
   
@@ -314,7 +314,7 @@ window.Quarto = {
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Primary sackings: </span><span class="sc">{</span><span class="bu">int</span>(events[<span class="st">'in_primary_sample'</span>].<span class="bu">sum</span>())<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-undefined">
+<div class="cell-output cell-output-stdout">
 <pre><code>Panel: 75,720 club-matches | seasons 2004/05–2024/25
 Primary sackings: 585</code></pre>
 </div>
@@ -405,7 +405,7 @@ Primary sackings: 585</code></pre>
 <span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Treated (sacking t=0): </span><span class="sc">{</span><span class="bu">len</span>(t0)<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Control candidates:     </span><span class="sc">{</span><span class="bu">len</span>(ctrl)<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-undefined">
+<div class="cell-output cell-output-stdout">
 <pre><code>Treated (sacking t=0): 585
 Control candidates:     46,770</code></pre>
 </div>
@@ -454,7 +454,7 @@ Control candidates:     46,770</code></pre>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display">
 <div>
 
 
@@ -520,7 +520,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>naive[<span class="st">"Change"</span>] <span class="op">=</span> naive[<span class="st">"PPG after (next 5)"</span>] <span class="op">-</span> naive[<span class="st">"PPG before (trailing 6)"</span>]</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>naive.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display">
 <div>
 
 
@@ -654,7 +654,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Matched stayers:  </span><span class="sc">{</span>n_stay<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Strata used:      </span><span class="sc">{</span>matched<span class="sc">.</span>loc[matched.treated <span class="op">==</span> <span class="dv">1</span>, <span class="st">'stratum'</span>]<span class="sc">.</span>nunique()<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-undefined">
+<div class="cell-output cell-output-stdout">
 <pre><code>Matched sackings: 581 of 585
 Matched stayers:  19,015
 Strata used:      236</code></pre>
@@ -694,7 +694,7 @@ Strata used:      236</code></pre>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>balance.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display">
 <div>
 
 
@@ -774,7 +774,7 @@ Strata used:      236</code></pre>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>att_table.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display">
 <div>
 
 
@@ -900,7 +900,7 @@ Strata used:      236</code></pre>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display">
 <div>
 
 
@@ -1044,7 +1044,7 @@ Strata used:      236</code></pre>
 <span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>).set_index(<span class="st">"Window"</span>)</span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>robust.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display">
 <div>
 
 
