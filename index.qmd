@@ -3,13 +3,13 @@ title: "Arnald Paguio"
 toc: false
 ---
 
-Data scientist. MS student at Boston University. Interested in causal inference, football analytics, and MLOps.
-
-I spent three years as a data scientist at BPI, where I built the MLOps library our team used to ship models — cutting development time by 70% and supporting more than 50 data scientists. Now I'm at BU going deeper on the methods, especially causal inference.
+Hi I'm Arnald! Data scientist with over three years of experience in the domains of banking, fintech, and logistics. Currently an MS student at Boston University.
 
 <span class="links">[GitHub](https://github.com/aadpaguio) · [LinkedIn](https://www.linkedin.com/in/arnald-paguio-782907162) · [Email](mailto:adpaguio@bu.edu)</span>
 
-## Selected
+## Highlighted Projects
+
+Here are some projects I'm particularly proud of. You can check out more of my work in the projects page!
 
 ::: {.selected-list}
 - **[The new manager bounce: does sacking actually help?](blog/new-manager-bounce/)** — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.

@@ -67,14 +67,14 @@
     "href": "index.html",
     "title": "Arnald Paguio",
     "section": "",
-    "text": "Data scientist. MS student at Boston University. Interested in causal inference, football analytics, and MLOps.\nI spent three years as a data scientist at BPI, where I built the MLOps library our team used to ship models — cutting development time by 70% and supporting more than 50 data scientists. Now I’m at BU going deeper on the methods, especially causal inference.\nGitHub · LinkedIn · Email"
+    "text": "Hi I’m Arnald! Data scientist with over three years of experience in the domains of banking, fintech, and logistics. Currently an MS student at Boston University.\nGitHub · LinkedIn · Email"
   },
   {
-    "objectID": "index.html#selected",
-    "href": "index.html#selected",
+    "objectID": "index.html#highlighted-projects",
+    "href": "index.html#highlighted-projects",
     "title": "Arnald Paguio",
-    "section": "Selected",
-    "text": "Selected\n\n\nThe new manager bounce: does sacking actually help? — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.\nbpi-standard-ml — A Python MLOps library used by BPI’s data science group. Model registry, feature store, drift detection.\npyfanova — Gradient-boosted trees made inherently interpretable through Functional ANOVA."
+    "section": "Highlighted Projects",
+    "text": "Highlighted Projects\nHere are some projects I’m particularly proud of. You can check out more of my work in the projects page!\n\n\nThe new manager bounce: does sacking actually help? — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.\nbpi-standard-ml — A Python MLOps library used by BPI’s data science group. Model registry, feature store, drift detection.\npyfanova — Gradient-boosted trees made inherently interpretable through Functional ANOVA."
   },
   {
     "objectID": "blog/index.html",
