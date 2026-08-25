@@ -242,6 +242,12 @@ window.Quarto = {
 
 
 <p>Ask any football fan and they’d tell you the only thing worse than your club’s manager getting sacked are the eight-to-ten matchweeks before it. A sacking is after all just the punctuation mark to a sustained period of on-pitch failure (barring the occasional club politics flare-up). If you love football and are chronically-online like me, you’d know that when your team is bad, a site like X becomes a literal doom-scroll; the in-fighting among fans, the crucifixion of players, AND worst of all, the glee of your rivals.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/amorim-bounce.png" class="lede-figure img-fluid figure-img" alt="Tweet screenshot joking about Ruben Amorim's new manager bounce, with a Simpsons clip of a man jumping from a burning building."></p>
+<figcaption>Fellow Man. United fans, you’d know my pain</figcaption>
+</figure>
+</div>
 <p>Fast forward 48 hours after the sacking: A new face shows up for the first press conference, says some nice things about the squad, and suddenly the same players who looked like they forgot how to pass a ball start playing with something resembling effort. Results pick up. The mood shifts. Fans who were writing eulogies two weeks ago are now talking about a top-four push.</p>
 <p>People online call this the ‘new manager bounce,’ and it’s one of those football concepts that’s always fascinated and amused me. For the downtrodden fan, your hopes for the season are never over! Just switch out the manager and voila! Season saved. For the rival fan, a fresh face at the dugout means losing points. Like the hot hand fallacy in basketball, the new manager bounce is one of those things that everyone accepts as true without really questioning it. I’d never actually checked, but <em>it always felt true</em>. Today, however, as a fun exercise I wanted to see if the data actually backs it up. <strong>Do teams genuinely perform better under a new manager, or are we just watching a bad streak naturally correct itself?</strong> Upon inspection, this inquiry is causal in nature. So for this project I shall employ the techniques of <strong>Causal Inference</strong>! Before diving straight in, let’s run through what Causal Inference is.</p>
 <section id="association-is-not-causation-till-it-is" class="level2">
@@ -307,7 +313,7 @@ window.Quarto = {
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Primary sackings: </span><span class="sc">{</span><span class="bu">int</span>(events[<span class="st">'in_primary_sample'</span>].<span class="bu">sum</span>())<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
+<div class="cell-output cell-output-undefined">
 <pre><code>Panel: 75,720 club-matches | seasons 2004/05–2024/25
 Primary sackings: 585</code></pre>
 </div>
@@ -398,7 +404,7 @@ Primary sackings: 585</code></pre>
 <span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Treated (sacking t=0): </span><span class="sc">{</span><span class="bu">len</span>(t0)<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Control candidates:     </span><span class="sc">{</span><span class="bu">len</span>(ctrl)<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
+<div class="cell-output cell-output-undefined">
 <pre><code>Treated (sacking t=0): 585
 Control candidates:     46,770</code></pre>
 </div>
@@ -647,7 +653,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Matched stayers:  </span><span class="sc">{</span>n_stay<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Strata used:      </span><span class="sc">{</span>matched<span class="sc">.</span>loc[matched.treated <span class="op">==</span> <span class="dv">1</span>, <span class="st">'stratum'</span>]<span class="sc">.</span>nunique()<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
+<div class="cell-output cell-output-undefined">
 <pre><code>Matched sackings: 581 of 585
 Matched stayers:  19,015
 Strata used:      236</code></pre>

@@ -160,6 +160,27 @@ main.content {
   max-width: 760px;
 }
 
+figure:has(.lede-figure) {
+  margin: 1.75rem 0;
+  text-align: center;
+}
+
+figure:has(.lede-figure) img {
+  max-width: min(100%, 480px);
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.figure-caption,
+figcaption {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.92rem;
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
 main.content p,
 main.content li {
   line-height: 1.65;
