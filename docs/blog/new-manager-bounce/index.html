@@ -243,18 +243,18 @@ window.Quarto = {
 
 <p>Ask any football fan and they’d tell you the only thing worse than your club’s manager getting sacked are the eight-to-ten matchweeks before it. A sacking is after all just the punctuation mark to a sustained period of on-pitch failure (barring the occasional club politics flare-up). If you love football and are chronically-online like me, you’d know that when your team is bad, a site like X becomes a literal doom-scroll; the in-fighting among fans, the crucifixion of players, AND worst of all, the glee of your rivals.</p>
 <p>Fast forward 48 hours after the sacking: A new face shows up for the first press conference, says some nice things about the squad, and suddenly the same players who looked like they forgot how to pass a ball start playing with something resembling effort. Results pick up. The mood shifts. Fans who were writing eulogies two weeks ago are now talking about a top-four push.</p>
-<p>People online call this the ‘new manager bounce,’ and it’s one of those football concepts that’s always fascinated and amused me. For the downtrodden fan, your hopes for the season are never over! Just switch out the manager and voila! Season saved. For the rival fan, a fresh face at the dugout means losing points. Like the hot hand fallacy in basketball, the new manager bounce is one of those things that everyone accepts as true without really questioning it. I’d never actually checked, but it always felt true. Today, however, as a fun exercise I wanted to see if the data actually backs it up. Do teams genuinely perform better under a new manager, or are we just watching a bad streak correct itself? This is a causal inference question, so let me quickly explain what that means.</p>
+<p>People online call this the ‘new manager bounce,’ and it’s one of those football concepts that’s always fascinated and amused me. For the downtrodden fan, your hopes for the season are never over! Just switch out the manager and voila! Season saved. For the rival fan, a fresh face at the dugout means losing points. Like the hot hand fallacy in basketball, the new manager bounce is one of those things that everyone accepts as true without really questioning it. I’d never actually checked, but <em>it always felt true</em>. Today, however, as a fun exercise I wanted to see if the data actually backs it up. <strong>Do teams genuinely perform better under a new manager, or are we just watching a bad streak naturally correct itself?</strong> Upon inspection, this inquiry is causal in nature. So for this project I shall employ the techniques of <strong>Causal Inference</strong>! Before diving straight in, let’s run through what Causal Inference is.</p>
 <section id="association-is-not-causation-till-it-is" class="level2">
 <h2 class="anchored" data-anchor-id="association-is-not-causation-till-it-is">Association is not causation… till it is!</h2>
-<p>Here’s a quick primer on causal inference (a lot of this is taken from Matheus Facure Alves’s excellent book).</p>
-<p>Causal inference is a set of techniques for figuring out if an action or event is the cause of a specific outcome. It is great for answering questions like:</p>
+<p>This section shall be a quick primer on causal inference (a lot of this is taken from Matheus Facure Alves’s excellent book, <a href="https://matheusfacure.github.io/python-causality-handbook/landing-page.html">Causal Inference for the Brave and True</a>).</p>
+<p><strong>Causal Inference</strong> is a set of techniques for figuring out if an action or event is the cause of a specific outcome. It is great for answering questions like:</p>
 <ul>
 <li>What would happen if I used another price instead of this price I’m currently asking for my merchandise?</li>
 <li>What would happen if I do a low sugar one instead of this low-fat diet I’m on?</li>
 <li>Or more pertinently: <strong>what would happen if I sack the manager instead of keeping him on?</strong></li>
 </ul>
-<p>I think most people can intuitively understand that association is not causation. Just because you noticed a correlation between two variables doesn’t mean one variable caused the change in the other. The fundamental task of causal inference is figuring out whether the association you observe is causation.</p>
-<p>So let’s bring it back to football. Fans see a new manager come in and results improve (the association), but is the new manager the cause? The thing is, teams don’t sack managers at random! They sack them when things are at their worst. And when you’re at your worst, results tend to improve on their own. If your team loses five matches in a row, the most likely outcome is that the next few matches go a little better, regardless of who’s in the dugout (we’d call this <strong>regression to the mean</strong>). So the question really becomes: would results have improved just as much if the club had stuck with the old manager?</p>
+<p>I think most people intuitively understand that association is not causation. Just because you noticed a correlation between two variables doesn’t mean one variable caused the change in the other. However, distinguishing a correlation from causation isn’t always straightforward. Like most things in life, what we perceive/observe is only a small part of what’s actually happening.The fundamental task then of causal inference is figuring out whether the <strong>association you observe is causation</strong>.</p>
+<p>So let’s bring it back to football. A new manager come in to save a struggling team’s season and instantly results improve (the association). But is the new manager the cause? From a fan’s perspective it sure does seem like it. The fact that this phenomenon is perceived enough for it to have a name must mean something! The thing is, teams don’t sack managers at random. They sack them when things are at their worst. And when you’re at your worst, results tend to improve on their own. If your team loses five matches in a row, the most likely outcome is that the next few matches go a little better, regardless of who’s in the dugout (we’d call this <strong>regression to the mean</strong>). So the question really becomes: <strong>would results have improved just as much if the club had stuck with the old manager?</strong></p>
 <p>To try to answer that, I’ll be doing the following:</p>
 <ol type="1">
 <li><strong>Describe the bounce.</strong> First, I want to see if the bounce even shows up in the raw data. I’ll plot points per game in the six matches before a mid-season sacking and the five matches after. If the bounce is real, we should see a dip leading into the sacking and a jump right after.</li>
@@ -276,7 +276,7 @@ window.Quarto = {
 <p>Match results come from <a href="https://www.football-data.co.uk">football-data.co.uk</a>, the usual open CSVs for the Big Five (Premier League, La Liga, Serie A, Bundesliga, Ligue 1). I stack them into a club-match panel: every team, every league game, with points (3/1/0), a running matchweek count, league position, and trailing form (points per game and goal difference over the last six matches). That panel goes back to 1993/94.</p>
 <p>Managerial changes come mainly from Wikipedia’s season pages, specifically the “Managerial changes” tables. With the help of Grok 4.6 and Composer 2.5, I scraped and parsed these into a CSV that contains who left, how they left (sacked, resigned, mutual consent), vacancy date, and who came in. Club names get mapped onto the football-data names so the two sources join. Where a season has no Wikipedia table, Transfermarkt filled the gaps. The managerial changes data covers 2004/05 through 2024/25, which is the window where the sacking data is usable.</p>
 <p>After filtering to mid-season sackings with at least five league games remaining, the primary sample is <strong>585 sacking events</strong> across the Big Five leagues.</p>
-<div id="5c3487e3" class="cell" data-execution_count="1">
+<div id="5c3487e3" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -312,9 +312,9 @@ Primary sackings: 585</code></pre>
 </section>
 <section id="measuring-the-bounce" class="level2">
 <h2 class="anchored" data-anchor-id="measuring-the-bounce">Measuring the bounce</h2>
-<p>For each sacking, I mark <span class="math inline">\(t=0\)</span> as the last league match before the vacancy. The dependent variable is points per game over the next five league matches after that point. I chose five because it’s long enough to smooth out a single lucky result but short enough that you’re still measuring the early effect of the new manager, not his entire tenure. I also checked it separately: five matches limits contamination. By match eight, about 13% of sacked clubs have had another managerial change, compared to about 8% by match five. The ATT comes out near zero at three, five, and eight matches anyway, but five is the cleanest primary window (three and eight are robustness checks).</p>
-<p>Controls are other club-matches in the same seasons that look like a possible sacking moment but aren’t: no managerial change (sacking, resignation, caretaker ending, etc.) in a window of six matchweeks before and five after, at least six games of trailing form, and five matches remaining. “Kept the manager” has to mean that.</p>
-<div id="5b504612" class="cell" data-execution_count="2">
+<p>For each sacking, I mark <span class="math inline">\(t=0\)</span> as the last league match before the vacancy. The dependent variable is points per game over the next five league matches after that point. I chose five because it’s long enough to smooth out a single lucky result but short enough that you’re still measuring the early effect of the new manager, not his entire tenure. I also checked it separately outside of this notebook: five matches saw the <em>least</em>. By match eight, about 13% of sacked clubs have had another managerial change, compared to about 8% by match five. The ATT comes out near zero at three, five, and eight matches anyway, but five is the cleanest primary window (three and eight are robustness checks).</p>
+<p>The control units for this exercise are other club-matches in the same seasons that <strong>look like a possible sacking moment but aren’t</strong>. So there’s no managerial change (sacking, resignation, caretaker ending, etc.) in a window of six matchweeks before and five after, at least six games of trailing form, and five matches remaining.</p>
+<div id="5b504612" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> panel.groupby([<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>], sort<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">9</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    panel[<span class="ss">f"lead_pts_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> g[<span class="st">"points"</span>].shift(<span class="op">-</span>k)</span>
@@ -402,8 +402,8 @@ Control candidates:     46,770</code></pre>
 <h2 class="anchored" data-anchor-id="a-first-look-at-the-data">A first look at the data</h2>
 <section id="sackings-by-league" class="level3">
 <h3 class="anchored" data-anchor-id="sackings-by-league">Sackings by league</h3>
-<p>Primary-sample mid-season sackings, 2004/05–2024/25. Serie A fires the most; Ligue 1 the least. That’s not a puzzle I try to solve here — just the raw geography of the sample.</p>
-<div id="cce18aab" class="cell" data-execution_count="3">
+<p>Primary-sample mid-season sackings, 2004/05–2024/25. Check where your favorite league stands:</p>
+<div id="cce18aab" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>league_labels <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"premier_league"</span>: <span class="st">"Premier League"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"la_liga"</span>: <span class="st">"La Liga"</span>,</span>
@@ -438,7 +438,7 @@ Control candidates:     46,770</code></pre>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -483,8 +483,8 @@ Control candidates:     46,770</code></pre>
 </section>
 <section id="the-naive-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="the-naive-comparison">The naive comparison</h3>
-<p>If you just compare sacked clubs to all unsacked club-matches, you get a bounce that looks huge.</p>
-<div id="3728ce09" class="cell" data-execution_count="4">
+<p>As a baseline, let’s compare sacked clubs to all unsacked club-matches:</p>
+<div id="3728ce09" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>naive <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"N"</span>: [<span class="bu">len</span>(t0), <span class="bu">len</span>(ctrl)],</span>
@@ -501,7 +501,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>naive[<span class="st">"Change"</span>] <span class="op">=</span> naive[<span class="st">"PPG after (next 5)"</span>] <span class="op">-</span> naive[<span class="st">"PPG before (trailing 6)"</span>]</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>naive.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -536,7 +536,7 @@ Control candidates:     46,770</code></pre>
 </div>
 </div>
 </div>
-<p>Sacked clubs improve by over half a point per game. Looks like the bounce is real, right? But look at the “before” column. Sacked clubs were averaging 0.66 PPG, which is relegation form. Unsacked clubs were averaging 1.45. These groups aren’t comparable. The improvement after the sacking could just be a terrible run ending on its own.</p>
+<p>As you can see, sacked clubs improve by over half a point per game! Looks like the bounce is real, right? But look at the “before” column. Sacked clubs were averaging 0.66 PPG, which is relegation form. Unsacked clubs were averaging 1.45. These groups aren’t comparable. The improvement after the sacking could just be terrible form regressing to the mean.</p>
 <p>This is the bias in the naive comparison. When you compute the simple difference in outcomes between sacked and unsacked clubs, you’re actually getting two things mixed together: the real effect of the sacking (the ATT) plus the bias from comparing fundamentally different clubs. We can write this as:</p>
 <p><span class="math display">\[\text{Simple difference} = \text{ATT} + \text{Bias}\]</span></p>
 <p>The whole point of matching is to kill that bias term. If we can find unsacked clubs that were just as bad at the same point in the season, then any remaining difference in outcomes is closer to the true effect of the sacking.</p>
@@ -544,7 +544,7 @@ Control candidates:     46,770</code></pre>
 </section>
 <section id="coarsened-exact-matching" class="level2">
 <h2 class="anchored" data-anchor-id="coarsened-exact-matching">Coarsened exact matching</h2>
-<p>CEM is almost embarrassingly simple. Cut each covariate into bins. Put every sacking and every candidate stayer into a bin (a <em>stratum</em>). Drop any bin that doesn’t contain at least one sacking <em>and</em> one stayer. Then compare within what’s left.</p>
+<p>So to find teams that were as bad as the teams we’ll be using a technique called Coarsened exact matching (CEM). CEM is quite simple. It works by <strong>grouping similar observations together</strong>. For each variable we’re matching on (league, table position, recent form, goal difference), we split the range into a few bins. For example, table position might get split into top (1-6), mid (7-14), and bottom (15-20). Once every variable has been binned, we combine them to create groups. A group might be something like ‘bottom-table team in the Premier League, mid-season, with poor recent form and a bad goal difference.’ Every sacking and every candidate stayer falls into one of these groups based on their covariate values. If a group has at least one sacking and at least one stayer, we have a valid comparison. If a group only has sackings or only has stayers, there’s no one to compare against, so it gets dropped. What survives is a set of sackings and stayers that looked similar enough on every variable to be placed in the same group.</p>
 <p>I coarsen as follows:</p>
 <table class="caption-top table">
 <colgroup>
@@ -581,7 +581,7 @@ Control candidates:     46,770</code></pre>
 </tbody>
 </table>
 <p>Each sacking counts as 1. Controls in a bin are down-weighted so they sum to the number of sackings in that bin. That’s the ATT: we care about clubs that <em>did</em> sack, and we reconstruct their <span class="math inline">\(Y(0)\)</span> from stayers who looked like them.</p>
-<div id="fb162727" class="cell" data-execution_count="5">
+<div id="fb162727" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_bins(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> df.copy()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"mw_bin"</span>] <span class="op">=</span> pd.cut(</span>
@@ -640,8 +640,8 @@ Strata used:      236</code></pre>
 </div>
 <section id="did-matching-work" class="level3">
 <h3 class="anchored" data-anchor-id="did-matching-work">Did matching work?</h3>
-<p>Standardized mean differences (SMD) before vs after matching. Raw, sacked clubs are much worse on form and table position. After CEM, those gaps collapse toward zero — which is the whole point.</p>
-<div id="a25bfaba" class="cell" data-execution_count="6">
+<p>Let’s look at the standardized mean differences (SMD) before vs after matching.</p>
+<div id="a25bfaba" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>covs <span class="op">=</span> [</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"matchweek"</span>, <span class="st">"Matchweek"</span>),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"league_position"</span>, <span class="st">"League position"</span>),</span>
@@ -669,7 +669,7 @@ Strata used:      236</code></pre>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[label <span class="cf">for</span> _, label <span class="kw">in</span> covs],</span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>balance.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -718,11 +718,14 @@ Strata used:      236</code></pre>
 </div>
 </div>
 </div>
+<p>Raw, sacked clubs are much worse on form and table position. After CEM, the gaps converge to zero, which means our matching was successful!</p>
 </section>
 <section id="the-att" class="level3">
 <h3 class="anchored" data-anchor-id="the-att">The ATT</h3>
-<p>Difference in next-five PPG: sacked minus matched stayers. If the new manager bounce is a <em>sacking</em> effect, this number should be clearly positive. If it’s just the hole filling in, it should sit near zero.</p>
-<div id="b6bf8752" class="cell" data-execution_count="7">
+<p>Once we have our matched groups, we can estimate the ATT (average treatment effect on the treated). The idea is straightforward: for each sacking, we now have a set of comparable stayers in the same group. We take the average points per game over the next five matches for the sacked clubs, and subtract the weighted average for the matched stayers:</p>
+<p><span class="math display">\[\widehat{\text{ATT}} = \overline{Y}_{\text{sacked}} - \overline{Y}_{\text{matched stayers}}\]</span></p>
+<p>Where <span class="math inline">\(\overline{Y}_{\text{sacked}}\)</span> is the mean next-five PPG for clubs that sacked their manager, and <span class="math inline">\(\overline{Y}_{\text{matched stayers}}\)</span> is the weighted mean next-five PPG for the comparable clubs that didn’t. If the new manager is actually causing the improvement, sacked clubs should be outperforming their matched stayers, and this number should be clearly positive. If the improvement is just a bad run naturally ending, both groups should recover at roughly the same rate, and the difference should sit near zero.</p>
+<div id="b6bf8752" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">"ppg_next_5"</span>].mean()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>w0 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> (w0 <span class="op">*</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"ppg_next_5"</span>]).<span class="bu">sum</span>() <span class="op">/</span> w0.<span class="bu">sum</span>()</span>
@@ -743,7 +746,7 @@ Strata used:      236</code></pre>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"Sacked (matched)"</span>, <span class="st">"Stay (matched)"</span>, <span class="st">"ATT (sack − stay)"</span>],</span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>att_table.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -786,13 +789,13 @@ Strata used:      236</code></pre>
 </div>
 </div>
 <p>Matched next-five PPG is about <strong>1.21</strong> whether you sacked or stayed. The ATT is roughly <strong>0.004</strong>, with a 95% interval of about <strong>[−0.07, +0.08]</strong>. That’s a rounding error. Sacking doesn’t help in the next five games. It doesn’t hurt either.</p>
-<p>One caveat on the standard errors: they’re a simple two-sample approximation. ATT weights make the stayers sum to the number of sackings, so I use that <span class="math inline">\(n\)</span> on both sides. Club-clustered SEs would be a bit wider, not narrower. It wouldn’t change the conclusion.</p>
+<p>“One note on the standard errors: these are a simple two-sample approximation, not bootstrapped or cluster-adjusted. Clustering by club would likely widen the interval slightly, but not enough to change the conclusion. The effect is too close to zero for that to matter.</p>
 </section>
 </section>
 <section id="event-time-plot" class="level2">
 <h2 class="anchored" data-anchor-id="event-time-plot">Event-time plot</h2>
-<p>This is the plot that tells the whole story. <span class="math inline">\(t=0\)</span> is the last match before the vacancy for sackings, and the matched slump match for stayers.</p>
-<div id="62b8be15" class="cell" data-execution_count="8">
+<p>A cool way to visualize the result is through an event-time plot. For each group (sacked and matched stayers), I plot average points per game at each match relative to t=0, from six matches before to five matches after. For sacked clubs, t=0 is the last match before the vacancy. For matched stayers, it’s the equivalent slump match.</p>
+<div id="62b8be15" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>units <span class="op">=</span> matched[</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"date"</span>, <span class="st">"matchweek"</span>, <span class="st">"treated"</span>, <span class="st">"w"</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>].rename(columns<span class="op">=</span>{<span class="st">"date"</span>: <span class="st">"t0_date"</span>, <span class="st">"matchweek"</span>: <span class="st">"t0_matchweek"</span>})</span>
@@ -866,7 +869,7 @@ Strata used:      236</code></pre>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -950,14 +953,14 @@ Strata used:      236</code></pre>
 </div>
 </div>
 </div>
-<p>Before the sacking, the blue line crashes. That’s the decline that gets a manager fired. The orange line (matched stayers) is low and relatively flat — clubs in similar form who kept their manager.</p>
+<p>Before the sacking, the blue line crashes. That’s the decline that gets a manager fired. The orange line (matched stayers) is low and relatively flat.</p>
 <p>After <span class="math inline">\(t=0\)</span>, both lines jump to roughly the same level and stay there. Sacked clubs go from about 0.23 PPG at <span class="math inline">\(t=0\)</span> to about 1.2. Matched stayers recover at nearly the same rate, from about 0.68 to about 1.2.</p>
-<p>The bounce is real in the sense that results <em>do</em> improve after a sacking. But clubs in similar situations who kept their manager improved by roughly the same amount. The ATT of 0.004 confirms it: sacking the manager produces no measurable advantage over keeping him.</p>
+<p>The bounce is real in the sense that results <em>do</em> improve after a sacking. But clubs in similar situations who kept their manager improved by roughly the same amount. The ATT of 0.004 confirms that <strong>sacking the manager produces no measurable advantage over keeping him.</strong></p>
 </section>
 <section id="robustness-three-five-and-eight-matches" class="level2">
 <h2 class="anchored" data-anchor-id="robustness-three-five-and-eight-matches">Robustness: three, five, and eight matches</h2>
-<p>Five is the headline window. Here I re-run the same CEM for next-3 and next-8 PPG (only clubs that actually have that many games left). If the null were an artifact of picking five, it would move.</p>
-<div id="3a95d8a1" class="cell" data-execution_count="9">
+<p>Five matches is the primary window, but I want to make sure the result isn’t sensitive to that choice. Here I re-run the same CEM matching for <strong>three-match and eight-match</strong> windows, only including clubs that have enough games remaining in the season. If the null result were just an artifact of the five-match cutoff, we’d expect to see a different picture at other horizons.</p>
+<div id="3a95d8a1" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matched_att(outcome: <span class="bu">str</span>, require: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t0.loc[t0[require]].copy()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> panel.loc[</span>
@@ -1007,7 +1010,7 @@ Strata used:      236</code></pre>
 <span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>).set_index(<span class="st">"Window"</span>)</span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>robust.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -1079,7 +1082,7 @@ Strata used:      236</code></pre>
 <li><strong>Heterogeneity.</strong> Does a sacking do anything different in the bottom six versus mid-table? Same machinery, split the sample — only if the cells stay thick.</li>
 <li><strong>Longer horizons.</strong> Five matches is the bounce. A twenty-game outcome would answer a different question (“does the hire eventually matter?”) and would need care about clubs that sack again mid-window.</li>
 </ol>
-<p>Until then: enjoy the doom-scroll if you want, but don’t expect the press conference to move the points column on its own. The table was always going to regress a bit toward the mean.</p>
+<p>If time permits, I’ll be working on a part 2. Cheers!</p>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
 <ul>
