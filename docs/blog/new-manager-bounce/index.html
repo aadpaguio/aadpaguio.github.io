@@ -277,6 +277,8 @@ window.Quarto = {
 <p>Managerial changes come mainly from Wikipedia’s season pages, specifically the “Managerial changes” tables. With the help of Grok 4.6 and Composer 2.5, I scraped and parsed these into a CSV that contains who left, how they left (sacked, resigned, mutual consent), vacancy date, and who came in. Club names get mapped onto the football-data names so the two sources join. Where a season has no Wikipedia table, Transfermarkt filled the gaps. The managerial changes data covers 2004/05 through 2024/25, which is the window where the sacking data is usable.</p>
 <p>After filtering to mid-season sackings with at least five league games remaining, the primary sample is <strong>585 sacking events</strong> across the Big Five leagues.</p>
 <div id="5c3487e3" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -304,6 +306,7 @@ window.Quarto = {
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Panel: </span><span class="sc">{</span><span class="bu">len</span>(panel)<span class="sc">:,}</span><span class="ss"> club-matches | seasons </span><span class="sc">{</span><span class="bu">min</span>(wiki_seasons)<span class="sc">}</span><span class="ss">–</span><span class="sc">{</span><span class="bu">max</span>(wiki_seasons)<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Primary sackings: </span><span class="sc">{</span><span class="bu">int</span>(events[<span class="st">'in_primary_sample'</span>].<span class="bu">sum</span>())<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Panel: 75,720 club-matches | seasons 2004/05–2024/25
 Primary sackings: 585</code></pre>
@@ -315,6 +318,8 @@ Primary sackings: 585</code></pre>
 <p>For each sacking, I mark <span class="math inline">\(t=0\)</span> as the last league match before the vacancy. The dependent variable is points per game over the next five league matches after that point. I chose five because it’s long enough to smooth out a single lucky result but short enough that you’re still measuring the early effect of the new manager, not his entire tenure. I also checked it separately outside of this notebook: five matches saw the <em>least</em> contamination. By match eight, about 13% of sacked clubs have had another managerial change, compared to about 8% by match five. The ATT comes out near zero at three, five, and eight matches anyway, but five is the cleanest primary window (three and eight are robustness checks).</p>
 <p>The control units for this exercise are other club-matches in the same seasons that <strong>look like a possible sacking moment but aren’t</strong>. So there’s no managerial change (sacking, resignation, caretaker ending, etc.) in a window of six matchweeks before and five after, at least six games of trailing form, and five matches remaining.</p>
 <div id="5b504612" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> panel.groupby([<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>], sort<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">9</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    panel[<span class="ss">f"lead_pts_</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> g[<span class="st">"points"</span>].shift(<span class="op">-</span>k)</span>
@@ -392,6 +397,7 @@ Primary sackings: 585</code></pre>
 <span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Treated (sacking t=0): </span><span class="sc">{</span><span class="bu">len</span>(t0)<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Control candidates:     </span><span class="sc">{</span><span class="bu">len</span>(ctrl)<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Treated (sacking t=0): 585
 Control candidates:     46,770</code></pre>
@@ -404,6 +410,8 @@ Control candidates:     46,770</code></pre>
 <h3 class="anchored" data-anchor-id="sackings-by-league">Sackings by league</h3>
 <p>Primary-sample mid-season sackings, 2004/05–2024/25. Check where your favorite league stands:</p>
 <div id="cce18aab" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>league_labels <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"premier_league"</span>: <span class="st">"Premier League"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"la_liga"</span>: <span class="st">"La Liga"</span>,</span>
@@ -431,6 +439,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>by_league.rename(<span class="st">"sackings"</span>).to_frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -485,6 +494,8 @@ Control candidates:     46,770</code></pre>
 <h3 class="anchored" data-anchor-id="the-naive-comparison">The naive comparison</h3>
 <p>As a baseline, let’s compare sacked clubs to all unsacked club-matches:</p>
 <div id="3728ce09" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>naive <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"N"</span>: [<span class="bu">len</span>(t0), <span class="bu">len</span>(ctrl)],</span>
@@ -501,6 +512,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>naive[<span class="st">"Change"</span>] <span class="op">=</span> naive[<span class="st">"PPG after (next 5)"</span>] <span class="op">-</span> naive[<span class="st">"PPG before (trailing 6)"</span>]</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>naive.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
@@ -582,6 +594,8 @@ Control candidates:     46,770</code></pre>
 </table>
 <p>Each sacking counts as 1. Controls in a bin are down-weighted so they sum to the number of sackings in that bin. That’s the ATT: we care about clubs that <em>did</em> sack, and we reconstruct their <span class="math inline">\(Y(0)\)</span> from stayers who looked like them.</p>
 <div id="fb162727" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_bins(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> df.copy()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    out[<span class="st">"mw_bin"</span>] <span class="op">=</span> pd.cut(</span>
@@ -632,6 +646,7 @@ Control candidates:     46,770</code></pre>
 <span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Matched sackings: </span><span class="sc">{</span>n_sacked<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span><span class="bu">len</span>(t0)<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Matched stayers:  </span><span class="sc">{</span>n_stay<span class="sc">:,}</span><span class="ss">"</span>)</span>
 <span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Strata used:      </span><span class="sc">{</span>matched<span class="sc">.</span>loc[matched.treated <span class="op">==</span> <span class="dv">1</span>, <span class="st">'stratum'</span>]<span class="sc">.</span>nunique()<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Matched sackings: 581 of 585
 Matched stayers:  19,015
@@ -642,6 +657,8 @@ Strata used:      236</code></pre>
 <h3 class="anchored" data-anchor-id="did-matching-work">Did matching work?</h3>
 <p>Let’s look at the standardized mean differences (SMD) before vs after matching.</p>
 <div id="a25bfaba" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>covs <span class="op">=</span> [</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"matchweek"</span>, <span class="st">"Matchweek"</span>),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"league_position"</span>, <span class="st">"League position"</span>),</span>
@@ -669,6 +686,7 @@ Strata used:      236</code></pre>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[label <span class="cf">for</span> _, label <span class="kw">in</span> covs],</span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>balance.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
@@ -726,6 +744,8 @@ Strata used:      236</code></pre>
 <p><span class="math display">\[\widehat{\text{ATT}} = \overline{Y}_{\text{sacked}} - \overline{Y}_{\text{matched stayers}}\]</span></p>
 <p>Where <span class="math inline">\(\overline{Y}_{\text{sacked}}\)</span> is the mean next-five PPG for clubs that sacked their manager, and <span class="math inline">\(\overline{Y}_{\text{matched stayers}}\)</span> is the weighted mean next-five PPG for the comparable clubs that didn’t. If the new manager is actually causing the improvement, sacked clubs should be outperforming their matched stayers, and this number should be clearly positive. If the improvement is just a bad run naturally ending, both groups should recover at roughly the same rate, and the difference should sit near zero.</p>
 <div id="b6bf8752" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">"ppg_next_5"</span>].mean()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>w0 <span class="op">=</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"w"</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>y0 <span class="op">=</span> (w0 <span class="op">*</span> matched.loc[matched[<span class="st">"treated"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"ppg_next_5"</span>]).<span class="bu">sum</span>() <span class="op">/</span> w0.<span class="bu">sum</span>()</span>
@@ -746,6 +766,7 @@ Strata used:      236</code></pre>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"Sacked (matched)"</span>, <span class="st">"Stay (matched)"</span>, <span class="st">"ATT (sack − stay)"</span>],</span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>att_table.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
@@ -796,6 +817,8 @@ Strata used:      236</code></pre>
 <h2 class="anchored" data-anchor-id="event-time-plot">Event-time plot</h2>
 <p>A cool way to visualize the result is through an event-time plot. For each group (sacked and matched stayers), I plot average points per game at each match relative to t=0, from six matches before to five matches after. For sacked clubs, t=0 is the last match before the vacancy. For matched stayers, it’s the equivalent slump match.</p>
 <div id="62b8be15" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>units <span class="op">=</span> matched[</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"league"</span>, <span class="st">"season"</span>, <span class="st">"club"</span>, <span class="st">"date"</span>, <span class="st">"matchweek"</span>, <span class="st">"treated"</span>, <span class="st">"w"</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>].rename(columns<span class="op">=</span>{<span class="st">"date"</span>: <span class="st">"t0_date"</span>, <span class="st">"matchweek"</span>: <span class="st">"t0_matchweek"</span>})</span>
@@ -862,6 +885,7 @@ Strata used:      236</code></pre>
 <span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>    [[<span class="st">"Sacked"</span>, <span class="st">"Stay (matched)"</span>]]</span>
 <span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -961,6 +985,8 @@ Strata used:      236</code></pre>
 <h2 class="anchored" data-anchor-id="robustness-three-five-and-eight-matches">Robustness: three, five, and eight matches</h2>
 <p>Five matches is the primary window, but I want to make sure the result isn’t sensitive to that choice. Here I re-run the same CEM matching for <strong>three-match and eight-match</strong> windows, only including clubs that have enough games remaining in the season. If the null result were just an artifact of the five-match cutoff, we’d expect to see a different picture at other horizons.</p>
 <div id="3a95d8a1" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matched_att(outcome: <span class="bu">str</span>, require: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t0.loc[t0[require]].copy()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> panel.loc[</span>
@@ -1010,6 +1036,7 @@ Strata used:      236</code></pre>
 <span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>).set_index(<span class="st">"Window"</span>)</span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>robust.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
