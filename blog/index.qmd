@@ -13,4 +13,5 @@ page-layout: article
 format:
   html:
     toc: false
+    code-fold: true
 ---
