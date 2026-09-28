@@ -32,7 +32,6 @@ website:
 format:
   html:
     theme: [default, theme.scss]
-    css: custom.css
     toc: false
     toc-location: right
     toc-depth: 3
