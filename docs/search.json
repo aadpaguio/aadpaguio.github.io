@@ -67,35 +67,56 @@
     "href": "index.html",
     "title": "Arnald Paguio",
     "section": "",
-    "text": "Hi I’m Arnald! Data scientist with over three years of experience in the domains of banking, fintech, and logistics. Currently an MS student at Boston University.\nGitHub · LinkedIn · Email"
-  },
-  {
-    "objectID": "index.html#highlighted-projects",
-    "href": "index.html#highlighted-projects",
-    "title": "Arnald Paguio",
-    "section": "Highlighted Projects",
-    "text": "Highlighted Projects\nHere are some projects I’m particularly proud of. You can check out more of my work in the projects page!\n\n\nThe new manager bounce: does sacking actually help? — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.\nbpi-standard-ml — A Python MLOps library used by BPI’s data science group. Model registry, feature store, drift detection.\npyfanova — Gradient-boosted trees made inherently interpretable through Functional ANOVA."
+    "text": "Data scientist building ML systems that ship, and the occasional causal-inference rabbit hole.\nThree years of production ML in banking, plus work in fintech and logistics. At the Bank of the Philippine Islands I built forecasting and credit models used by leadership, and an MLOps library used by 50+ data scientists. I’m now finishing an MS in Data Science at Boston University.\nGitHub · LinkedIn · Email\n\n\nNow\n\nMS in Data Science at Boston University, graduating December 2026 (3.96 GPA). Data analytics intern at STMicroelectronics, building the pipelines behind Americas market-share reporting.\n\n\n\nSelected work\n\n\nThe new manager bounce\nDoes sacking a manager improve results? Coarsened exact matching on 585 sackings across 20 seasons of Europe’s top five leagues.\nFinding: the effect is essentially zero over 3, 5, and 8 matches.\n\n\nbpi-standard-ml\nA Python MLOps library that standardized preprocessing, training, Optuna tuning, and experiment tracking at BPI.\nUsed by 50+ data scientists; cut development-to-deployment time by about 70%.\n\n\nMarginalia\nA local-first EPUB reader with an AI reading partner that looks up book context through tool calls instead of reading the full text, which cuts hallucinations and avoids spoilers.\nThree retrieval tiers compared with an LLM judge across 3 books × 15 prompts.\n\n\nRouting frozen experts with contextual bandits\nA LinUCB router that learns which frozen specialist model should handle each input, instead of sending everything through one large model.\nBetter cumulative decisions than a supervised router, despite picking the exact best expert 2.3× less often.\n\nAll projects →\n\n\n\nExperience\n\n\n2026 – now Data Analytics Intern · STMicroelectronics\nMoved key-account demand data from SharePoint into PostgreSQL with an automated Python and SQL pipeline that replaced a slower Power Automate workflow.\n\n\n2022 – 2025 Data Scientist · Bank of the Philippine Islands\nLed the bank’s largest ML initiative: weekly customer-level deposit forecasts used by leadership for fund allocation. Also built a credit-card inactivity model and the team’s AWS model-governance tooling.\n2.3% MAPE over 10-week horizons on 1.9B+ rows · campaigns worth about $3.1M a year · 83% lower cloud costs\n\n\n2022 Data Management & Analytics Intern · QuadX\nDelivery-route models with OR-Tools and Power BI logistics dashboards.\n\n\n2021 Advanced Analytics Intern · GCash\nCustomer-behavior analysis in SQL and a lead-scoring ML pipeline for investment products.\n\n\n\n\nWriting\n\n\n\n\n\n2026\n\nThe New Manager Bounce: Does sacking actually help\nWhen a club sacks its manager, results often improve. I investigate whether the sacking caused the bounce, or whether it was coming anyway.\n\n\n\n\nNo matching items\n\n\n\n\nEducation\n\n\n2026 M.S. Data Science · Boston University\n\n\n2022 B.S. Management Engineering · Ateneo de Manila University"
   },
   {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "The New Manager Bounce: Does sacking actually help\n\n\nWhen a club sacks its manager, results often improve. I investigate whether the sacking caused the bounce, or whether it was coming anyway.\n\n\n\n\n\nAugust 21, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Aug 21, 2026\n\nThe New Manager Bounce: Does sacking actually help\nWhen a club sacks its manager, results often improve. I investigate whether the sacking caused the bounce, or whether it was coming anyway.\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "A Python MLOps library that standardized model development for BPI’s data science group, cutting time-to-model by 70% for 50+ scientists.\n\nPython · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB\n\n\n\n\nGradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.\n\nPython · XGBoost · NumPy · scikit-learn · Functional ANOVA\n\n\n\n\nA causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.\n\nPython · causal inference · CEM · football\n\n\n\n\nA production POS and inventory system for a multi-branch business, replacing manual record-keeping with live transactions and reporting.\n\nNext.js · TypeScript · PostgreSQL · Metabase · Vercel"
+    "text": "A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway. Built a dataset of 585 mid-season sackings across 20 seasons of Europe’s top five leagues and used coarsened exact matching to compare sacked clubs with similar clubs that kept their manager.\n\nFinding: the effect on the treated is essentially zero over 3, 5, and 8 matches.\n\n\nPython · causal inference · CEM · football\n\n\n\n\nA Python MLOps library that standardized preprocessing, training, Optuna tuning, and experiment tracking for BPI’s data science group, alongside an S3 model registry, DuckDB feature store, and drift monitoring.\n\nUsed by 50+ data scientists; cut development-to-deployment time by about 70%.\n\n\nPython · scikit-learn · XGBoost · LightGBM · Optuna · AWS S3 · DuckDB\n\n\n\n\nA local-first desktop EPUB reader with an AI reading partner. Instead of receiving the whole book, the model retrieves context through explicit tool calls, which reduces hallucination and keeps it from spoiling what you haven’t read yet.\n\nCompared three retrieval tiers across 3 books × 15 prompts, scored by an LLM judge on faithfulness, completeness, and claim precision.\n\n\nTauri · Rust · React · TypeScript · LLM tool calling\n\n\n\n\nA LinUCB contextual-bandit router that learns which frozen specialist model should handle each input, as a cheaper alternative to sending every input through one large model. Compared online learning from the chosen model’s feedback against a supervised best-expert classifier.\n\nLinUCB made better cumulative decisions despite picking the exact best expert 2.3× less often.\n\n\nPython · contextual bandits · LinUCB · online learning\n\n\n\n\nA cloud-native epidemic surveillance pipeline that validates health events of several types and routes them into hourly regional facts for dashboards, ML scoring, and alerting. Event-time Spark ETL lands idempotently in Postgres, and multiple outbreak detectors vote before an alert fires.\n\nKafka · Tekton · Spark · TimescaleDB · Streamlit\n\n\n\n\nGradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.\n\nPython · XGBoost · NumPy · scikit-learn · Functional ANOVA\n\n\n\n\nA production POS and inventory system for a multi-branch business, replacing manual record-keeping with live transactions and reporting.\n\nNext.js · TypeScript · PostgreSQL · Metabase · Vercel"
+  },
+  {
+    "objectID": "projects.html#the-new-manager-bounce",
+    "href": "projects.html#the-new-manager-bounce",
+    "title": "Projects",
+    "section": "",
+    "text": "A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway. Built a dataset of 585 mid-season sackings across 20 seasons of Europe’s top five leagues and used coarsened exact matching to compare sacked clubs with similar clubs that kept their manager.\n\nFinding: the effect on the treated is essentially zero over 3, 5, and 8 matches.\n\n\nPython · causal inference · CEM · football"
   },
   {
     "objectID": "projects.html#bpi-standard-ml",
     "href": "projects.html#bpi-standard-ml",
     "title": "Projects",
     "section": "",
-    "text": "A Python MLOps library that standardized model development for BPI’s data science group, cutting time-to-model by 70% for 50+ scientists.\n\nPython · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB"
+    "text": "A Python MLOps library that standardized preprocessing, training, Optuna tuning, and experiment tracking for BPI’s data science group, alongside an S3 model registry, DuckDB feature store, and drift monitoring.\n\nUsed by 50+ data scientists; cut development-to-deployment time by about 70%.\n\n\nPython · scikit-learn · XGBoost · LightGBM · Optuna · AWS S3 · DuckDB"
+  },
+  {
+    "objectID": "projects.html#marginalia",
+    "href": "projects.html#marginalia",
+    "title": "Projects",
+    "section": "",
+    "text": "A local-first desktop EPUB reader with an AI reading partner. Instead of receiving the whole book, the model retrieves context through explicit tool calls, which reduces hallucination and keeps it from spoiling what you haven’t read yet.\n\nCompared three retrieval tiers across 3 books × 15 prompts, scored by an LLM judge on faithfulness, completeness, and claim precision.\n\n\nTauri · Rust · React · TypeScript · LLM tool calling"
+  },
+  {
+    "objectID": "projects.html#routing-frozen-experts-with-contextual-bandits",
+    "href": "projects.html#routing-frozen-experts-with-contextual-bandits",
+    "title": "Projects",
+    "section": "",
+    "text": "A LinUCB contextual-bandit router that learns which frozen specialist model should handle each input, as a cheaper alternative to sending every input through one large model. Compared online learning from the chosen model’s feedback against a supervised best-expert classifier.\n\nLinUCB made better cumulative decisions despite picking the exact best expert 2.3× less often.\n\n\nPython · contextual bandits · LinUCB · online learning"
+  },
+  {
+    "objectID": "projects.html#epidemic-engine",
+    "href": "projects.html#epidemic-engine",
+    "title": "Projects",
+    "section": "",
+    "text": "A cloud-native epidemic surveillance pipeline that validates health events of several types and routes them into hourly regional facts for dashboards, ML scoring, and alerting. Event-time Spark ETL lands idempotently in Postgres, and multiple outbreak detectors vote before an alert fires.\n\nKafka · Tekton · Spark · TimescaleDB · Streamlit"
   },
   {
     "objectID": "projects.html#pyfanova",
@@ -103,13 +124,6 @@
     "title": "Projects",
     "section": "",
     "text": "Gradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.\n\nPython · XGBoost · NumPy · scikit-learn · Functional ANOVA"
-  },
-  {
-    "objectID": "projects.html#the-new-manager-bounce",
-    "href": "projects.html#the-new-manager-bounce",
-    "title": "Projects",
-    "section": "",
-    "text": "A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.\n\nPython · causal inference · CEM · football"
   },
   {
     "objectID": "projects.html#tbmc-pos-and-inventory",

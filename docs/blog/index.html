@@ -68,9 +68,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-engines","listing-language","listing-toc","listing-toc-depth","listing-toc-location","listing-date-format","listing-title","listing-author","listing-date","listing-categories","listing-description","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@1,6..72,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -186,26 +186,18 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Zm9vdGJhbGwlMkNjYXVzYWwtaW5mZXJlbmNlJTJDcHl0aG9u" data-listing-date-sort="1787284800000" data-listing-file-modified-sort="1787669117242" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2941">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/new-manager-bounce/index.html" class="no-external">The New Manager Bounce: Does sacking actually help</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/new-manager-bounce/index.html" class="no-external">
-<p>When a club sacks its manager, results often improve. I investigate whether the sacking caused the bounce, or whether it was coming anyway.</p>
-</a></div>
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<ul class="writing-list">
+
+<li data-index="0" data-categories="Zm9vdGJhbGwlMkNjYXVzYWwtaW5mZXJlbmNlJTJDcHl0aG9u" data-listing-date-sort="1787284800000" data-listing-file-modified-sort="1787669117242" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2941">
+<span class="when">Aug 21, 2026</span>
+<div>
+<a class="entry-title" href="../blog/new-manager-bounce/index.html">The New Manager Bounce: Does sacking actually help</a>
+<p class="writing-description">When a club sacks its manager, results often improve. I investigate whether the sacking caused the bounce, or whether it was coming anyway.</p>
 </div>
-<div class="metadata">
-<a href="../blog/new-manager-bounce/index.html" class="no-external">
-<div class="listing-date">
-August 21, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
+</li>
+
+</ul>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

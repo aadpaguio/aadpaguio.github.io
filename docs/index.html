@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -56,10 +58,68 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-writing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-engines","listing-language","listing-toc","listing-toc-depth","listing-toc-location","listing-date-format","listing-title","listing-author","listing-date","listing-categories","listing-description","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-writing'] = new List('listing-writing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@1,6..72,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -122,21 +182,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Hi I’m Arnald! Data scientist with over three years of experience in the domains of banking, fintech, and logistics. Currently an MS student at Boston University.</p>
+<div class="home">
+<div class="hero">
+<p><span class="tagline">Data scientist building ML systems that ship, and the occasional causal-inference rabbit hole.</span></p>
+<p>Three years of production ML in banking, plus work in fintech and logistics. At the Bank of the Philippine Islands I built forecasting and credit models used by leadership, and an MLOps library used by 50+ data scientists. I’m now finishing an MS in Data Science at Boston University.</p>
 <p><span class="links"><a href="https://github.com/aadpaguio">GitHub</a> · <a href="https://www.linkedin.com/in/arnald-paguio-782907162">LinkedIn</a> · <a href="mailto:adpaguio@bu.edu">Email</a></span></p>
-<section id="highlighted-projects" class="level2">
-<h2 class="anchored" data-anchor-id="highlighted-projects">Highlighted Projects</h2>
-<p>Here are some projects I’m particularly proud of. You can check out more of my work in the projects page!</p>
-<div class="selected-list">
-<ul>
-<li><strong><a href="blog/new-manager-bounce/">The new manager bounce: does sacking actually help?</a></strong> — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.</li>
-<li><strong><a href="https://github.com/aadpaguio/bpi-standard-ml-demo">bpi-standard-ml</a></strong> — A Python MLOps library used by BPI’s data science group. Model registry, feature store, drift detection.</li>
-<li><strong><a href="https://github.com/aadpaguio/pyfanova">pyfanova</a></strong> — Gradient-boosted trees made inherently interpretable through Functional ANOVA.</li>
+</div>
+<div class="home-row">
+<p><span class="home-label">Now</span></p>
+<div class="body">
+<p>MS in Data Science at Boston University, graduating December 2026 (3.96 GPA). Data analytics intern at STMicroelectronics, building the pipelines behind Americas market-share reporting.</p>
+</div>
+</div>
+<div class="home-row">
+<p><span class="home-label">Selected work</span></p>
+<div class="body entries">
+<div class="entry">
+<p><a href="blog/new-manager-bounce/" class="entry-title">The new manager bounce</a></p>
+<p>Does sacking a manager improve results? Coarsened exact matching on 585 sackings across 20 seasons of Europe’s top five leagues.</p>
+<p><span class="result">Finding: the effect is essentially zero over 3, 5, and 8 matches.</span></p>
+</div>
+<div class="entry">
+<p><a href="https://github.com/aadpaguio/bpi-standard-ml-demo" class="entry-title">bpi-standard-ml</a></p>
+<p>A Python MLOps library that standardized preprocessing, training, Optuna tuning, and experiment tracking at BPI.</p>
+<p><span class="result">Used by 50+ data scientists; cut development-to-deployment time by about 70%.</span></p>
+</div>
+<div class="entry">
+<p><a href="https://github.com/aadpaguio/Marginalia" class="entry-title">Marginalia</a></p>
+<p>A local-first EPUB reader with an AI reading partner that looks up book context through tool calls instead of reading the full text, which cuts hallucinations and avoids spoilers.</p>
+<p><span class="result">Three retrieval tiers compared with an LLM judge across 3 books × 15 prompts.</span></p>
+</div>
+<div class="entry">
+<p><a href="https://github.com/aadpaguio/moe_contextual_bandits" class="entry-title">Routing frozen experts with contextual bandits</a></p>
+<p>A LinUCB router that learns which frozen specialist model should handle each input, instead of sending everything through one large model.</p>
+<p><span class="result">Better cumulative decisions than a supervised router, despite picking the exact best expert 2.3× less often.</span></p>
+</div>
+<p><a href="./projects.html" class="more">All projects →</a></p>
+</div>
+</div>
+<div class="home-row">
+<p><span class="home-label">Experience</span></p>
+<div class="body entries">
+<div class="entry">
+<p><span class="when">2026 – now</span> <span class="entry-title">Data Analytics Intern · STMicroelectronics</span></p>
+<p>Moved key-account demand data from SharePoint into PostgreSQL with an automated Python and SQL pipeline that replaced a slower Power Automate workflow.</p>
+</div>
+<div class="entry">
+<p><span class="when">2022 – 2025</span> <span class="entry-title">Data Scientist · Bank of the Philippine Islands</span></p>
+<p>Led the bank’s largest ML initiative: weekly customer-level deposit forecasts used by leadership for fund allocation. Also built a credit-card inactivity model and the team’s AWS model-governance tooling.</p>
+<p><span class="result">2.3% MAPE over 10-week horizons on 1.9B+ rows · campaigns worth about $3.1M a year · 83% lower cloud costs</span></p>
+</div>
+<div class="entry">
+<p><span class="when">2022</span> <span class="entry-title">Data Management &amp; Analytics Intern · QuadX</span></p>
+<p>Delivery-route models with OR-Tools and Power BI logistics dashboards.</p>
+</div>
+<div class="entry">
+<p><span class="when">2021</span> <span class="entry-title">Advanced Analytics Intern · GCash</span></p>
+<p>Customer-behavior analysis in SQL and a lead-scoring ML pipeline for investment products.</p>
+</div>
+</div>
+</div>
+<div class="home-row">
+<p><span class="home-label">Writing</span></p>
+<div class="body">
+<div id="listing-writing" class="quarto-listing quarto-listing-container-custom">
+<ul class="writing-list">
+
+<li data-index="0" data-categories="Zm9vdGJhbGwlMkNjYXVzYWwtaW5mZXJlbmNlJTJDcHl0aG9u" data-listing-date-sort="1787284800000" data-listing-file-modified-sort="1787669117242" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2941">
+<span class="when">2026</span>
+<div>
+<a class="entry-title" href="./blog/new-manager-bounce/index.html">The New Manager Bounce: Does sacking actually help</a>
+<p class="writing-description">When a club sacks its manager, results often improve. I investigate whether the sacking caused the bounce, or whether it was coming anyway.</p>
+</div>
+</li>
+
 </ul>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</div>
+</div>
+<div class="home-row">
+<p><span class="home-label">Education</span></p>
+<div class="body entries">
+<div class="entry">
+<p><span class="when">2026</span> <span class="entry-title">M.S. Data Science · Boston University</span></p>
+</div>
+<div class="entry">
+<p><span class="when">2022</span> <span class="entry-title">B.S. Management Engineering · Ateneo de Manila University</span></p>
+</div>
+</div>
+</div>
 </div>
 
 
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

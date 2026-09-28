@@ -2,9 +2,10 @@
 title: "Blog"
 toc: false
 listing:
-  contents: .
+  contents: "*/index.*"
   sort: "date desc"
-  type: default
+  template: ../_templates/writing.ejs
+  date-format: "MMM D, YYYY"
   sort-ui: false
   filter-ui: false
   categories: false

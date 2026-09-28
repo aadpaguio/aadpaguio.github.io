@@ -1,18 +1,133 @@
 ---
 title: "Arnald Paguio"
 toc: false
+listing:
+  id: writing
+  contents: "blog/*/index.*"
+  sort: "date desc"
+  template: _templates/writing.ejs
+  date-format: "YYYY"
+  max-items: 5
+  fields: [date, title, description]
 ---
 
-Hi I'm Arnald! Data scientist with over three years of experience in the domains of banking, fintech, and logistics. Currently an MS student at Boston University.
+:::::: {.home}
 
-<span class="links">[GitHub](https://github.com/aadpaguio) · [LinkedIn](https://www.linkedin.com/in/arnald-paguio-782907162) · [Email](mailto:adpaguio@bu.edu)</span>
+::::: {.hero}
+[Data scientist building ML systems that ship, and the occasional causal-inference rabbit hole.]{.tagline}
 
-## Highlighted Projects
+Three years of production ML in banking, plus work in fintech and logistics. At the Bank of the Philippine Islands I built forecasting and credit models used by leadership, and an MLOps library used by 50+ data scientists. I'm now finishing an MS in Data Science at Boston University.
 
-Here are some projects I'm particularly proud of. You can check out more of my work in the projects page!
+[[GitHub](https://github.com/aadpaguio) · [LinkedIn](https://www.linkedin.com/in/arnald-paguio-782907162) · [Email](mailto:adpaguio@bu.edu)]{.links}
+:::::
 
-::: {.selected-list}
-- **[The new manager bounce: does sacking actually help?](blog/new-manager-bounce/)** — Using coarsened exact matching on 20 years of Big Five football data to test whether sacking a manager actually improves results.
-- **[bpi-standard-ml](https://github.com/aadpaguio/bpi-standard-ml-demo)** — A Python MLOps library used by BPI's data science group. Model registry, feature store, drift detection.
-- **[pyfanova](https://github.com/aadpaguio/pyfanova)** — Gradient-boosted trees made inherently interpretable through Functional ANOVA.
+::::: {.home-row}
+[Now]{.home-label}
+
+:::: {.body}
+MS in Data Science at Boston University, graduating December 2026 (3.96 GPA). Data analytics intern at STMicroelectronics, building the pipelines behind Americas market-share reporting.
+::::
+:::::
+
+::::: {.home-row}
+[Selected work]{.home-label}
+
+:::: {.body .entries}
+::: {.entry}
+[The new manager bounce](blog/new-manager-bounce/){.entry-title}
+
+Does sacking a manager improve results? Coarsened exact matching on 585 sackings across 20 seasons of Europe's top five leagues.
+
+[Finding: the effect is essentially zero over 3, 5, and 8 matches.]{.result}
 :::
+
+::: {.entry}
+[bpi-standard-ml](https://github.com/aadpaguio/bpi-standard-ml-demo){.entry-title}
+
+A Python MLOps library that standardized preprocessing, training, Optuna tuning, and experiment tracking at BPI.
+
+[Used by 50+ data scientists; cut development-to-deployment time by about 70%.]{.result}
+:::
+
+::: {.entry}
+[Marginalia](https://github.com/aadpaguio/Marginalia){.entry-title}
+
+A local-first EPUB reader with an AI reading partner that looks up book context through tool calls instead of reading the full text, which cuts hallucinations and avoids spoilers.
+
+[Three retrieval tiers compared with an LLM judge across 3 books × 15 prompts.]{.result}
+:::
+
+::: {.entry}
+[Routing frozen experts with contextual bandits](https://github.com/aadpaguio/moe_contextual_bandits){.entry-title}
+
+A LinUCB router that learns which frozen specialist model should handle each input, instead of sending everything through one large model.
+
+[Better cumulative decisions than a supervised router, despite picking the exact best expert 2.3× less often.]{.result}
+:::
+
+[All projects →](projects.qmd){.more}
+::::
+:::::
+
+::::: {.home-row}
+[Experience]{.home-label}
+
+:::: {.body .entries}
+::: {.entry}
+[2026 – now]{.when}
+[Data Analytics Intern · STMicroelectronics]{.entry-title}
+
+Moved key-account demand data from SharePoint into PostgreSQL with an automated Python and SQL pipeline that replaced a slower Power Automate workflow.
+:::
+
+::: {.entry}
+[2022 – 2025]{.when}
+[Data Scientist · Bank of the Philippine Islands]{.entry-title}
+
+Led the bank's largest ML initiative: weekly customer-level deposit forecasts used by leadership for fund allocation. Also built a credit-card inactivity model and the team's AWS model-governance tooling.
+
+[2.3% MAPE over 10-week horizons on 1.9B+ rows · campaigns worth about \$3.1M a year · 83% lower cloud costs]{.result}
+:::
+
+::: {.entry}
+[2022]{.when}
+[Data Management & Analytics Intern · QuadX]{.entry-title}
+
+Delivery-route models with OR-Tools and Power BI logistics dashboards.
+:::
+
+::: {.entry}
+[2021]{.when}
+[Advanced Analytics Intern · GCash]{.entry-title}
+
+Customer-behavior analysis in SQL and a lead-scoring ML pipeline for investment products.
+:::
+::::
+:::::
+
+::::: {.home-row}
+[Writing]{.home-label}
+
+:::: {.body}
+::: {#writing}
+:::
+::::
+:::::
+
+::::: {.home-row}
+[Education]{.home-label}
+
+:::: {.body .entries}
+::: {.entry}
+[2026]{.when}
+[M.S. Data Science · Boston University]{.entry-title}
+:::
+
+::: {.entry}
+[2022]{.when}
+[B.S. Management Engineering · Ateneo de Manila University]{.entry-title}
+:::
+::::
+:::::
+
+::::::

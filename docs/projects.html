@@ -58,7 +58,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@1,6..72,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
 
 <link rel="stylesheet" href="custom.css">
@@ -123,11 +123,51 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="project-list">
+<section id="the-new-manager-bounce" class="level2">
+<h2 class="anchored" data-anchor-id="the-new-manager-bounce"><a href="blog/new-manager-bounce/">The new manager bounce</a></h2>
+<p>A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway. Built a dataset of 585 mid-season sackings across 20 seasons of Europe’s top five leagues and used coarsened exact matching to compare sacked clubs with similar clubs that kept their manager.</p>
+<p class="result">
+Finding: the effect on the treated is essentially zero over 3, 5, and 8 matches.
+</p>
+<p class="tech">
+Python · causal inference · CEM · football
+</p>
+</section>
 <section id="bpi-standard-ml" class="level2">
 <h2 class="anchored" data-anchor-id="bpi-standard-ml"><a href="https://github.com/aadpaguio/bpi-standard-ml-demo">bpi-standard-ml</a></h2>
-<p>A Python MLOps library that standardized model development for BPI’s data science group, cutting time-to-model by 70% for 50+ scientists.</p>
+<p>A Python MLOps library that standardized preprocessing, training, Optuna tuning, and experiment tracking for BPI’s data science group, alongside an S3 model registry, DuckDB feature store, and drift monitoring.</p>
+<p class="result">
+Used by 50+ data scientists; cut development-to-deployment time by about 70%.
+</p>
 <p class="tech">
-Python · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB
+Python · scikit-learn · XGBoost · LightGBM · Optuna · AWS S3 · DuckDB
+</p>
+</section>
+<section id="marginalia" class="level2">
+<h2 class="anchored" data-anchor-id="marginalia"><a href="https://github.com/aadpaguio/Marginalia">Marginalia</a></h2>
+<p>A local-first desktop EPUB reader with an AI reading partner. Instead of receiving the whole book, the model retrieves context through explicit tool calls, which reduces hallucination and keeps it from spoiling what you haven’t read yet.</p>
+<p class="result">
+Compared three retrieval tiers across 3 books × 15 prompts, scored by an LLM judge on faithfulness, completeness, and claim precision.
+</p>
+<p class="tech">
+Tauri · Rust · React · TypeScript · LLM tool calling
+</p>
+</section>
+<section id="routing-frozen-experts-with-contextual-bandits" class="level2">
+<h2 class="anchored" data-anchor-id="routing-frozen-experts-with-contextual-bandits"><a href="https://github.com/aadpaguio/moe_contextual_bandits">Routing frozen experts with contextual bandits</a></h2>
+<p>A LinUCB contextual-bandit router that learns which frozen specialist model should handle each input, as a cheaper alternative to sending every input through one large model. Compared online learning from the chosen model’s feedback against a supervised best-expert classifier.</p>
+<p class="result">
+LinUCB made better cumulative decisions despite picking the exact best expert 2.3× less often.
+</p>
+<p class="tech">
+Python · contextual bandits · LinUCB · online learning
+</p>
+</section>
+<section id="epidemic-engine" class="level2">
+<h2 class="anchored" data-anchor-id="epidemic-engine">Epidemic Engine</h2>
+<p>A cloud-native epidemic surveillance pipeline that validates health events of several types and routes them into hourly regional facts for dashboards, ML scoring, and alerting. Event-time Spark ETL lands idempotently in Postgres, and multiple outbreak detectors vote before an alert fires.</p>
+<p class="tech">
+Kafka · Tekton · Spark · TimescaleDB · Streamlit
 </p>
 </section>
 <section id="pyfanova" class="level2">
@@ -135,13 +175,6 @@ Python · scikit-learn · XGBoost · LightGBM · AWS S3 · DuckDB
 <p>Gradient-boosted trees made inherently interpretable by limiting interactions to two features and extracting main effects via Functional ANOVA.</p>
 <p class="tech">
 Python · XGBoost · NumPy · scikit-learn · Functional ANOVA
-</p>
-</section>
-<section id="the-new-manager-bounce" class="level2">
-<h2 class="anchored" data-anchor-id="the-new-manager-bounce"><a href="blog/new-manager-bounce/">The new manager bounce</a></h2>
-<p>A causal analysis of whether firing a football manager actually improves results, or whether the bounce was coming anyway.</p>
-<p class="tech">
-Python · causal inference · CEM · football
 </p>
 </section>
 <section id="tbmc-pos-and-inventory" class="level2">
